@@ -1,18 +1,15 @@
-<ion-nav-view>
-	<ion-content>
-		<div class="tabs tabs-icon-top">
-	  		<a class="tab-item">
-	    		<i class="icon ion-home"></i>
-	    		Home
-	  		</a>
-	  		<a class="tab-item">
-	    		<i class="icon ion-star"></i>
-	    		Favorites
-	  		</a>
-	  		<a class="tab-item">
-	    		<i class="icon ion-gear-a"></i>
-	    		Settings
-	  		</a>
-		</div>
-	</ion-content>
-</ion-nav-view>
+<ion-tabs class="tabs-icon-top tabs-positive">
+
+    <ion-tab title="Home" icon="ion-home" ui-sref="main.myenergy">
+          <ion-nav-view name="MyenergyContent"></ion-nav-view>
+    </ion-tab>
+
+   	<ion-tab title="Community" icon="ion-ios-information" ui-sref="main.community">
+          <ion-nav-view name="CommunityContent"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Setting" icon="ion-ios-world" ui-sref="main.setting">
+          <ion-nav-view name="SettingContent"></ion-nav-view>
+    </ion-tab>
+
+</ion-tabs>

@@ -53,7 +53,7 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
     .state('main.myenergy', {
       url: '/myenergy',
       views: {
-        'mainContent': {
+        'MyenergyContent': {
           templateUrl: 'templates/main/myenergy.html',
           controller: 'MainMyenergyCtrl'
         }
@@ -63,9 +63,19 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
     .state('main.community', {
       url: '/community',
       views: {
-        'mainContent': {
+        'CommunityContent': {
           templateUrl: 'templates/main/community.html',
-          controller: 'CommunityCtrl'
+          controller: 'MainCommunityCtrl'
+        }
+      }
+    })
+
+    .state('main.setting', {
+      url: '/setting',
+      views: {
+        'SettingContent': {
+          templateUrl: 'templates/main/setting.html',
+          controller: 'MainSettingCtrl'
         }
       }
     });
