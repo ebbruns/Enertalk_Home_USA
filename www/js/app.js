@@ -35,7 +35,7 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
     .state('intro.login', {
       url: '/login',
       views: {
-        'introContent':{
+        'introContent': {
           templateUrl: 'templates/intro/intro-login.html',
           controller: 'IntroLoginCtrl'
         }
@@ -46,8 +46,28 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
       url: '/main',
       cache: false,
       abstract: true,
-      templateUrl: 'templates/main/main-home.html',
-      controller: 'MainHomeCtrl'
+      templateUrl: 'templates/main/main.html',
+      controller: 'MainCtrl'
+    })
+
+    .state('main.myenergy', {
+      url: '/myenergy',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/main/myenergy.html',
+          controller: 'MainMyenergyCtrl'
+        }
+      }
+    })
+
+    .state('main.community', {
+      url: '/community',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/main/community.html',
+          controller: 'CommunityCtrl'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/intro/login');

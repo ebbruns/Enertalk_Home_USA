@@ -1,5 +1,5 @@
 angular.module('enertalkHomeUSA.controllers')
 
-  .controller('MainHomeCtrl', function($scope) {
+  .controller('MainMyenergyCtrl', function($scope) {
 
   });
