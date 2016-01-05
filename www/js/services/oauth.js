@@ -1,6 +1,6 @@
 angular.module('enertalkHomeUSA.services')
 
-	.service('Api', function () {
+	.service('Oauth', function () {
 		
 
 		
