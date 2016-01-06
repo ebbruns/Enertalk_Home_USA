@@ -9736,3 +9736,77 @@ a.button {
     text-align: center; }
   #intro-login .list .item-input {
     border: 0px; }
+
+#myenergy {
+  padding: 8px 12px 8px; }
+  #myenergy #myenergy-kwh-container {
+    height: 70%;
+    border: 1px solid #A0A3B2;
+    border-radius: 8px; }
+    #myenergy #myenergy-kwh-container .header {
+      height: 36px;
+      text-align: center;
+      position: relative; }
+      #myenergy #myenergy-kwh-container .header .header-title {
+        line-height: 36px;
+        font-size: 20px; }
+      #myenergy #myenergy-kwh-container .header .edit-button {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        background-color: black; }
+    #myenergy #myenergy-kwh-container #kwh-chart {
+      height: calc(70% - 36px); }
+    #myenergy #myenergy-kwh-container .footer {
+      height: 30%; }
+      #myenergy #myenergy-kwh-container .footer .footer-list {
+        height: 50%;
+        padding-left: 18px;
+        position: relative; }
+        #myenergy #myenergy-kwh-container .footer .footer-list .list-image {
+          display: inline-block;
+          width: 36px;
+          height: 36px;
+          position: absolute;
+          top: calc(50% - 18px); }
+          #myenergy #myenergy-kwh-container .footer .footer-list .list-image.co2 {
+            content: url("../img/line_co2.png"); }
+          #myenergy #myenergy-kwh-container .footer .footer-list .list-image.tree {
+            content: url("../img/line_tree.png"); }
+        #myenergy #myenergy-kwh-container .footer .footer-list .list-label {
+          position: absolute;
+          top: calc(50% - 8px);
+          padding-left: 72px;
+          font-size: 16px; }
+  #myenergy #myenergy-nonkwh-container {
+    height: 15%; }
+
+#main-myenergy-line {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 100%; }
+  #main-myenergy-line .line-container {
+    border: 1px solid #A0A3B2;
+    border-radius: 8px;
+    padding-left: 18px;
+    height: 100%;
+    position: relative;
+    vertical-align: middle; }
+    #main-myenergy-line .line-container .line-image {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      top: calc(50% - 18px); }
+      #main-myenergy-line .line-container .line-image.usage-trends {
+        content: url("../img/line_co2.png"); }
+      #main-myenergy-line .line-container .line-image.usage-calendar {
+        content: url("../img/line_tree.png"); }
+    #main-myenergy-line .line-container .line-label {
+      position: absolute;
+      top: calc(50% - 8px);
+      padding-left: 72px;
+      font-size: 16px; }
