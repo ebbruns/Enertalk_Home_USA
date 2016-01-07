@@ -6,7 +6,7 @@ angular.module('enertalkHomeUSA')
 
 	.constant('MODE', 'production')
 
-	.constant('API', (function (isDevelopment) {
+	.constant('APIURL', (function (isDevelopment) {
 		var domain = isDevelopment ? 'http://api-staging.encoredtech.com' : 'https://api.encoredtech.com:8082';
 		return {
       		'signUpUrl': domain.api + '/1.1/users/basicinfo/signup',
@@ -39,7 +39,7 @@ angular.module('enertalkHomeUSA')
     	}
 	})())
 
-	.constant('OAUTH', (function (isDevelopment) {
+	.constant('OAUTHURL', (function (isDevelopment) {
 		var domain = 'https://enertalk-auth.encoredtech.com',
       		clientId,
       		clientSecret;
