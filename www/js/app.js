@@ -25,6 +25,8 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
+
+    // intro views
     .state('intro', {
         url: '/intro',
         abstract: true,
@@ -41,7 +43,9 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
         }
       }
     })
+    // ------------------------------------------
 
+    // tab view
     .state('main', {
       url: '/main',
       cache: false,
@@ -49,7 +53,9 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
       templateUrl: 'templates/main/main.html',
       controller: 'MainCtrl'
     })
+    // --------------------------------------------
 
+    // myenergy views
     .state('main.myenergy', {
       url: '/myenergy',
       views: {
@@ -60,6 +66,39 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
       }
     })
 
+    .state('main.kwh-usage', {
+      url: '/kwh-usage',
+      views: {
+        'MyenergyContent': {
+          templateUrl: 'templates/main/kwh-usage.html',
+          controller: 'KwhUsageCtrl'
+        }
+      }
+    })
+
+    .state('main.usage-trends', {
+      url: '/usage-trends',
+      views: {
+        'MyenergyContent': {
+          templateUrl: 'templates/main/usage-trends.html',
+          controller: 'UsageTrendsCtrl'
+        }
+      }
+    })
+
+    .state('main.energy-calendar', {
+      url: '/energy-calendar',
+      views: {
+        'MyenergyContent': {
+          templateUrl: 'templates/main/energy-calendar.html',
+          controller: 'EnergyCalendarCtrl'
+        }
+      }
+    })
+    // ------------------------------------------
+
+
+    // community views
     .state('main.community', {
       url: '/community',
       views: {
@@ -70,6 +109,50 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
       }
     })
 
+
+    .state('main.compete', {
+        url: '/compete',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compete.html',
+                controller: 'CommCompeteCtrl'
+            }
+        }
+    })
+
+    .state('main.compare', {
+            url: '/compare',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/compare.html',
+                    controller: 'CommCompareCtrl'
+                }
+            }
+        })
+
+        .state('main.forum', {
+            url: '/forum',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/forum.html',
+                    controller: 'CommForumCtrl'
+                }
+            }
+        })
+
+        .state('main.donate', {
+            url: '/donate',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/donate.html',
+                    controller: 'CommDonateCtrl'
+                }
+            }
+        })
+    // --------------------------------------
+
+
+    // setting views
     .state('main.setting', {
       url: '/setting',
       views: {
@@ -79,6 +162,7 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
         }
       }
     });
+    // --------------------------------------
 
   $urlRouterProvider.otherwise('/intro/login');
 });
