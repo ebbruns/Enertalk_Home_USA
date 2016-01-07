@@ -82,13 +82,16 @@ angular.module('enertalkHomeUSA.controllers')
 		            type: 'category',
 		            labels: {
 		            	enabled: false
-		            }
+		            },
 		        },
 		        yAxis: {
 		            min: 0,
 		            labels: {
-		            		enabled: false
+		            	enabled: false
 		            },
+		            title: {
+		            	text: ''
+		            }
 		        },
 		        legend: {
 		            enabled: false

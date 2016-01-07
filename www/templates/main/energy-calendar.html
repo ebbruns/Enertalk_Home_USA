@@ -1,5 +1,30 @@
 <ion-view>
-	<ion-content id="energy-calendar">
-		energy-calendar
+	<ion-content id="energy-calendar" has-bouncing="false">
+		
+		<div id="title">Energy Calendar</div>
+		
+		<div id="calendar-header">
+			<span class="ion-chevron-left calendar-button left" ng-click="button.clickLeft()"></span>
+			<span id="calendar-date" ng-bind="calendarTitle"></span>
+			<span class="ion-chevron-right calendar-button right" ng-click="button.clickRight()"></span>
+		</div>
+
+		<div id="calendar-container">
+			<div id="calendar">
+				<span class="day-elem" ng-repeat="dayOfWeek in dayOfWeekList" ng-bind="dayOfWeek"></span>
+				<span class="elem" ng-repeat="date in dateList">
+					<span class="elem-header" ng-bind="date.date"></span>
+					<span class="elem-badge" ng-class="{'smile': date.image}"></span>
+				</span>
+			</div>
+		</div>
+
+		<div id="calendar-subcontents-container">
+			<div id="target-day">10 days</div>
+			<div>You use energy under your target</div>
+			<div id="total-usage">Total Energy used: 237kWh</div>
+			<div>You used 56kWh less than target!</div>
+		</div>
+
 	</ion-content>
 </ion-view>

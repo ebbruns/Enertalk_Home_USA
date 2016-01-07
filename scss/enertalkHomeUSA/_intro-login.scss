@@ -1,8 +1,15 @@
 #intro-login {
-	padding-top: 12px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding: 8px 12px 8px;
 	
+	.scroll {
+		height: 100%;
+	}
+
+	#login-image {
+		display: block;
+		height: 20%;
+	}
+
 	input {
 		text-align: center;
 	}

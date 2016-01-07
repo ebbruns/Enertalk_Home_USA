@@ -1,8 +1,11 @@
 #myenergy {
 	padding: 8px 12px 8px;
-	
+		
 	.scroll {
 		height: 100%;
+	}
+	.scroll-bar {
+		visibility: hidden;
 	}
 
 	#myenergy-kwh-container {
