@@ -3497,6 +3497,9 @@ ion-infinite-scroll {
   bottom: 0;
   left: 0;
   position: absolute; }
+  .overflow-scroll.pane {
+    overflow-x: hidden;
+    overflow-y: scroll; }
   .overflow-scroll .scroll {
     position: static;
     height: 100%;
@@ -9739,10 +9742,13 @@ a.button {
 
 #myenergy {
   padding: 8px 12px 8px; }
+  #myenergy .scroll {
+    height: 100%; }
   #myenergy #myenergy-kwh-container {
     height: 70%;
     border: 1px solid #A0A3B2;
-    border-radius: 8px; }
+    border-radius: 8px;
+    margin-bottom: 4px; }
     #myenergy #myenergy-kwh-container .header {
       height: 36px;
       text-align: center;
@@ -9778,11 +9784,48 @@ a.button {
             content: url("../img/line_tree.png"); }
         #myenergy #myenergy-kwh-container .footer .footer-list .list-label {
           position: absolute;
-          top: calc(50% - 8px);
+          top: calc(50% - 10px);
           padding-left: 72px;
           font-size: 16px; }
   #myenergy #myenergy-nonkwh-container {
-    height: 15%; }
+    height: 13%; }
+
+#kwh-usage {
+  padding: 8px 12px 8px; }
+  #kwh-usage .scroll {
+    height: 100%; }
+  #kwh-usage #header {
+    height: 56px; }
+    #kwh-usage #header #date {
+      text-align: right; }
+    #kwh-usage #header #title {
+      text-align: center;
+      font-size: 20px;
+      color: #878787; }
+  #kwh-usage #main-contents-container {
+    height: calc(60% - 56px);
+    padding-top: 30px; }
+    #kwh-usage #main-contents-container #usage-percent {
+      display: block;
+      text-align: center;
+      font-size: 64px;
+      height: 48px; }
+    #kwh-usage #main-contents-container #usage-percent-text {
+      text-align: center; }
+    #kwh-usage #main-contents-container #usage-percent-chart {
+      height: 50px; }
+    #kwh-usage #main-contents-container #usage-percent-subtext {
+      padding-left: 40px; }
+      #kwh-usage #main-contents-container #usage-percent-subtext .subtext {
+        display: block;
+        font-size: 14px; }
+  #kwh-usage #sub-contents-container {
+    height: 40%; }
+    #kwh-usage #sub-contents-container #sub-contents-chart {
+      height: 80%; }
+
+#setting {
+  padding: 8px 12px 8px; }
 
 #main-myenergy-line {
   padding-top: 8px;
@@ -9807,6 +9850,6 @@ a.button {
         content: url("../img/line_tree.png"); }
     #main-myenergy-line .line-container .line-label {
       position: absolute;
-      top: calc(50% - 8px);
+      top: calc(50% - 10px);
       padding-left: 72px;
       font-size: 16px; }

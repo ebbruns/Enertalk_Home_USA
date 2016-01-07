@@ -1,5 +1,27 @@
-<ion-view id="kwh-usage">
-	<ion-content id="kwh-usage-container">
-		kwh-usage
+<ion-view>
+	<ion-content id="kwh-usage">
+
+		<div id="header">
+			<div id="date" ng-bind="now"></div>
+			<div id="title">Energy Used</div>
+		</div>
+
+		<div id="main-contents-container">
+			<span id="usage-percent">84%</span>
+			<div id="usage-percent-text">of your targe has been used</div>
+			<div id="usage-percent-chart"></div>
+
+			<div id="usage-percent-subtext">
+				<span class="subtext">*      Energy used today: 8.39kWh</span>
+				<span class="subtext">*      Target: 10kWh</span>
+				<span class="subtext">*      Remaing: 1.61kWh</span> 
+			</div>
+		</div>
+
+		<div id="sub-contents-container">
+			<div id="sub-contents-chart"></div>
+		</div>
+
+
 	</ion-content>
 </ion-view>

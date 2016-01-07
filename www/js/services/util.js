@@ -1,6 +1,6 @@
 angular.module('enertalkHomeUSA.services')
 
-  .service('Util', function ($window, $ionicLoading, $ionicModal, $log, $interval, $timeout, $http, $ionicSideMenuDelegate, API) {
+  .service('Util', function ($window) {
 
     this.querystring = {
       stringify: function (obj) {
@@ -61,8 +61,8 @@ angular.module('enertalkHomeUSA.services')
       }
     };
 
-    this.checkOnline = function () {
-      return $http.get(API.onlineUrl);
-    };
+    // this.checkOnline = function () {
+    //   return $http.get(API.onlineUrl);
+    // };
 
   });
