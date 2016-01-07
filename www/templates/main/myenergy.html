@@ -1,5 +1,30 @@
-<ion-view id="myenergy">
-	<ion-content>
-	  	<div>myenergy view</div>
+<ion-view view-title="MyEnergy">
+	<ion-content id="myenergy">
+	  	<div id="myenergy-kwh-container" ng-click="goToDetailView('kwh')">
+	  		
+	  		<div class="header">
+	  			<span class="header-title">Today</span>
+	  			<span class="edit-button"></span>
+	  		</div>
+
+	  		<div id="kwh-chart"></div>
+	  		
+	  		<div class="footer">
+	  			<div class="footer-list">
+	  				<span class="list-image co2"></span>
+	  				<span class="list-label">3.2kg co2 emitted</span>
+	  			</div>
+	  			<div class="footer-list">
+	  				<span class="list-image tree"></span>
+	  				<span class="list-label">2.4 Pine trees saved</span>
+	  			</div>
+	  		</div>
+	
+		</div>
+	  	
+	  	<div id="myenergy-nonkwh-container" ng-repeat="item in myenergyItems">
+	  		<myenergy-line label="{{item.label}}" type="{{item.type}}" ng-click="goToDetailView(item.type)">
+	  	</div>
+	
 	</ion-content>
 </ion-view>

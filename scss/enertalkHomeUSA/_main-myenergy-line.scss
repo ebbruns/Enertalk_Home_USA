@@ -1,0 +1,35 @@
+#main-myenergy-line {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	height: 100%;
+
+	.line-container {
+		border: 1px solid #A0A3B2;
+		border-radius: 8px;
+		padding-left: 18px;
+		height: 100%;
+		position: relative;
+		vertical-align: middle;
+
+		.line-image {
+			display: inline-block;
+			width: 36px;
+			height: 36px;
+			position: absolute;
+			top: calc(50% - 18px);
+
+			&.usage-trends {
+				content: url('../img/line_co2.png');
+			}
+			&.usage-calendar {
+				content: url('../img/line_tree.png');
+			}
+		}
+		.line-label {
+			position: absolute;
+			top: calc(50% - 8px);
+			padding-left: 72px;
+			font-size: 16px;
+		}
+	}
+}
