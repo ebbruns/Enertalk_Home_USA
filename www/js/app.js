@@ -108,6 +108,47 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
         }
       }
     })
+
+
+    .state('main.compete', {
+        url: '/compete',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compete.html',
+                controller: 'CommCompeteCtrl'
+            }
+        }
+    })
+
+    .state('main.compare', {
+            url: '/compare',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/compare.html',
+                    controller: 'CommCompareCtrl'
+                }
+            }
+        })
+
+        .state('main.forum', {
+            url: '/forum',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/forum.html',
+                    controller: 'CommForumCtrl'
+                }
+            }
+        })
+
+        .state('main.donate', {
+            url: '/donate',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/donate.html',
+                    controller: 'CommDonateCtrl'
+                }
+            }
+        })
     // --------------------------------------
 
 
