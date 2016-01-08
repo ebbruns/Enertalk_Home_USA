@@ -1,10 +1,16 @@
 #community {
 	padding: 8px 12px 8px;
+    font-size: 20px;
 
 	.community-container {
 		height: 70%;
 		border: 1px solid #A0A3B2;
 		border-radius: 8px;
+        padding-bottom: 2%;
+        padding-top: 2%;
+        margin-bottom: 1%;
+        padding-left: 3%;
+
 
 		.header {
 			height: 36px;
@@ -53,5 +59,4 @@
 	#community-alt-container {
 		height: 15%;
 	}
-}
 }
