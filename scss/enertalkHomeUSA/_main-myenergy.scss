@@ -1,10 +1,18 @@
 #myenergy {
 	padding: 8px 12px 8px;
+		
+	.scroll {
+		height: 100%;
+	}
+	.scroll-bar {
+		visibility: hidden;
+	}
 
 	#myenergy-kwh-container {
 		height: 70%;
 		border: 1px solid #A0A3B2;
 		border-radius: 8px;
+		margin-bottom: 4px;
 
 		.header {
 			height: 36px;
@@ -52,7 +60,7 @@
 				}
 				.list-label {
 					position: absolute;
-					top: calc(50% - 8px);
+					top: calc(50% - 10px);
 					padding-left: 72px;
 					font-size: 16px;
 				}
@@ -61,6 +69,6 @@
 	}
 
 	#myenergy-nonkwh-container {
-		height: 15%;
+		height: 13%;
 	}
 }

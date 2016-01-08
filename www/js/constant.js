@@ -7,7 +7,8 @@ angular.module('enertalkHomeUSA')
 	.constant('MODE', 'production')
 
 	.constant('APIURL', (function (isDevelopment) {
-		var domain = isDevelopment ? 'http://api-staging.encoredtech.com' : 'https://api.encoredtech.com:8082';
+		var domain = {};
+    domain.api = isDevelopment ? 'http://api-staging.encoredtech.com' : 'https://api.encoredtech.com:8082';
 		return {
       		'signUpUrl': domain.api + '/1.1/users/basicinfo/signup',
       		'nickNameCheckUrl': domain.api + '/1.1/users/basicinfo/signup/nickName',

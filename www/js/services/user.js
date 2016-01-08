@@ -14,12 +14,11 @@ angular.module('enertalkHomeUSA.services')
 			Oauth.getAccesstoken(credentials)
 
 			.then(function (response) {
-				$log.info('accesstoken is ' + response.access_token);
-				$log.info('refreshtoken is ' + response.refresh_token);
-
-				if (response.access_token) {
-					this.accesstoken = response.access_token;
-					this.refreshtoken = response.refresh_token;
+				if (response.status === 200 && response.data.access_token) {
+					$log.info('accesstoken is ' + response.data.access_token);
+					$log.info('refreshtoken is ' + response.data.refresh_token);
+					this.accesstoken = response.data.access_token;
+					this.refreshtoken = response.data.refresh_token;
 					return Oauth.getUUID(this.accesstoken);
 				} else {
 					return $q.reject();
@@ -27,22 +26,27 @@ angular.module('enertalkHomeUSA.services')
 			})
 
 			.then(function (response) {
-				if (response.uuid) {
-					this.uuid = response.uuid;
-					return Api.getProfile();
+				if (response.status === 200 && response.data.uuid) {
+					$log.info('uuid is ' + response.data.uuid);
+					this.uuid = response.data.uuid;
+					return Api.getProfile(this.accesstoken);	
 				} else {
 					return $q.reject();
 				}
 			})
 
-			.then(function (profile) {
-				this.profile = profile;
+			.then(function (response) {
+				if (response.status === 200 && response.data) {
+					this.profile = response.data;
+				} else {
+					return $q.reject();
+				}
 				next(null, 'success');
 			})
 
 			.catch(function (error) {
 				$log.info(error);
-				next(error);
+				next(error, 'error');
 			});
 		};
 
