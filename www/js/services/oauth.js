@@ -7,7 +7,7 @@ angular.module('enertalkHomeUSA.services')
 				method: 'POST',
 				url: OAUTHURL.tokenUrl,
 				headers: {
-					'Authorization': Util.encodeAuthHeader.basic(OAUTH.clientId, OAUTH.clientSecret)
+					'Authorization': Util.encodeAuthHeader.basic(OAUTHURL.clientId, OAUTHURL.clientSecret)
 				},
 				data: {
 					grant_type: 'password',

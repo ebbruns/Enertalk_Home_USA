@@ -10,6 +10,9 @@ angular.module('enertalkHomeUSA.controllers')
     		},{
     			label: 'energy calendar',
     			type: 'tree'
+    		},{
+    			label: 'toSeeScrollable',
+    			type: 'tree'
     		}];
 
     		$timeout(function () {
