@@ -9912,6 +9912,9 @@ a.button {
     padding-top: 2%;
     margin-bottom: 1%;
     padding-left: 3%; }
+    #community .community-container a {
+      color: #000000;
+      text-decoration: none; }
     #community .community-container .header {
       height: 36px;
       text-align: center;
