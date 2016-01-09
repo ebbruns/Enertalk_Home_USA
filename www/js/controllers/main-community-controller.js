@@ -9,9 +9,10 @@ angular.module('enertalkHomeUSA.controllers')
           $state.go('main.compare');
       };
 
-      $scope.forum = function () {
-          $state.go('main.forum');
-      };
+      //Stub for when the app has a built in forum feature instead of a FB link
+      //$scope.forum = function () {
+          //$state.go('main.forum');
+      //};
 
       $scope.donate = function () {
           $state.go('main.donate');
