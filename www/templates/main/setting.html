@@ -1,6 +1,40 @@
 <ion-view view-title="setting">
 	<ion-content id="setting">
 	  	<div id="setting-container">
+	  		<div class="list">
+
+			    <a class="item item-avatar" ng-click="changeProfileImage()">
+			      	<img src="../img/user.png">
+			      	<h2>nickName: {{profile.nickName}}</h2>
+			    </a>
+
+			    <li class="item item-icon-right">
+      				Reset Daily Target
+      				<i class="icon ion-ios-arrow-forward">
+      				</i>
+    			</li>
+
+			    <li class="item item-toggle">
+     				Auto Login
+     				<label class="toggle toggle-assertive">
+       					<input type="checkbox" ng-model="setting.enableAutoLogin" ng-change="changeSetting()">
+       					<div class="track">
+         					<div class="handle"></div>
+       					</div>
+    	 		</label>
+
+    	 		<li class="item item-toggle">
+     				Pop-up Real-time usage
+     				<label class="toggle toggle-assertive">
+       					<input type="checkbox" ng-model="setting.enableRealtimePopup" ng-change="changeSetting()">
+       					<div class="track">
+         					<div class="handle"></div>
+       					</div>
+    	 			</label>
+
+  				</li>
+
+			</div>
 	  	</div>
 	</ion-content>
 </ion-view>

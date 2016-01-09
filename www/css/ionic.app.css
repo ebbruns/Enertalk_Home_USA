@@ -9954,6 +9954,8 @@ a.button {
 
 #setting {
   padding: 8px 12px 8px; }
+  #setting #setting-container .item {
+    border: 0px; }
 
 #main-myenergy-line {
   padding-top: 8px;

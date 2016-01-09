@@ -2,12 +2,14 @@ angular.module('enertalkHomeUSA.services')
 	
 	.service('User', function (Oauth, Api, $log, $q) {
 		
+		var _this = this;
+
 		this.init = function () {
-			this.accesstoken = undefined;
-			this.refreshtoken = undefined;
-			this.uuid = undefined;
-			this.profile = {};
-			this.deviceStatus = 'NOT_REGISTERED';
+			_this.accesstoken = undefined;
+			_this.refreshtoken = undefined;
+			_this.uuid = undefined;
+			_this.profile = {};
+			_this.deviceStatus = 'NOT_REGISTERED';
 		};
 
 		this.login = function (credentials, next) {
@@ -17,9 +19,9 @@ angular.module('enertalkHomeUSA.services')
 				if (response.status === 200 && response.data.access_token) {
 					$log.info('accesstoken is ' + response.data.access_token);
 					$log.info('refreshtoken is ' + response.data.refresh_token);
-					this.accesstoken = response.data.access_token;
-					this.refreshtoken = response.data.refresh_token;
-					return Oauth.getUUID(this.accesstoken);
+					_this.accesstoken = response.data.access_token;
+					_this.refreshtoken = response.data.refresh_token;
+					return Oauth.getUUID(_this.accesstoken);
 				} else {
 					return $q.reject();
 				}
@@ -28,8 +30,8 @@ angular.module('enertalkHomeUSA.services')
 			.then(function (response) {
 				if (response.status === 200 && response.data.uuid) {
 					$log.info('uuid is ' + response.data.uuid);
-					this.uuid = response.data.uuid;
-					return Api.getProfile(this.accesstoken);	
+					_this.uuid = response.data.uuid;
+					return Api.getProfile(_this.accesstoken);	
 				} else {
 					return $q.reject();
 				}
@@ -37,7 +39,7 @@ angular.module('enertalkHomeUSA.services')
 
 			.then(function (response) {
 				if (response.status === 200 && response.data) {
-					this.profile = response.data;
+					_this.profile = response.data;
 				} else {
 					return $q.reject();
 				}
@@ -54,4 +56,5 @@ angular.module('enertalkHomeUSA.services')
 
 		};
 
+		_this.init();
 	});
