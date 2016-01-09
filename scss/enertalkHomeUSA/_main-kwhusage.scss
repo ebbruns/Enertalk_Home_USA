@@ -1,0 +1,56 @@
+#kwh-usage {
+	padding: 8px 12px 8px;
+
+	.scroll {
+		height: 100%;
+	}
+	.scroll-bar {
+		visibility: hidden;
+	}
+
+	#header {
+		height: 56px;
+		#date {
+			text-align: right;
+		}
+
+		#title {
+			text-align: center;
+			font-size: 20px;
+			color: #878787;
+		}
+	}	
+
+	#main-contents-container {
+		height: calc(60% - 56px);
+		padding-top: 30px;
+		#usage-percent {
+			display: block;
+			text-align: center;
+			font-size: 64px;
+			height: 48px;
+		}
+		#usage-percent-text {
+			text-align: center;
+		}
+
+		#usage-percent-chart {
+			height: 50px;
+		}
+
+		#usage-percent-subtext {
+			padding-left: 40px;
+			.subtext {
+				display: block;
+				font-size: 14px;
+			}
+		}
+	}
+
+	#sub-contents-container {
+		height: 40%;
+		#sub-contents-chart {
+			height: 80%;
+		}
+	}
+}
