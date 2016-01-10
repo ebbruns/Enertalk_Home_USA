@@ -1,12 +1,15 @@
 angular.module('enertalkHomeUSA.controllers')
 
-	.controller('MainSettingCtrl', function($scope, User, Util, $cordovaCamera) {
+	.controller('MainSettingCtrl', function($scope, User, Util, $cordovaCamera, $log, $window) {
 		function init () {
 			var setting = Util.localStorage.getObject('setting'),
-				settingKeyList = Object.keys(setting);
+				profileImage = Util.localStorage.get('profileImageURI') || './img/user.png',
+				settingKeyList = Object.keys(setting),
+				imageTarget = document.getElementById('profile-image');
 
 			$scope.profile = User.profile;
 			$scope.setting = setting;
+			imageTarget.src = "data:image/jpeg;base64," + profileImage;
 
 			if (settingKeyList.indexOf('enableAutoLogin') < 0) {
 				$scope.setting.enableAutoLogin = true;
@@ -16,8 +19,6 @@ angular.module('enertalkHomeUSA.controllers')
 				$scope.setting.enableRealtimePopup = true;
 				Util.localStorage.setObject('setting', setting);
 			}
-
-
 		}
 
 		$scope.changeSetting = function () {
@@ -28,16 +29,19 @@ angular.module('enertalkHomeUSA.controllers')
 		$scope.changeProfileImage = function () {
 			document.addEventListener("deviceready", function () {
 			    var options = {
-			      destinationType: Camera.DestinationType.FILE_URI,
-			      sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+			      destinationType: Camera.DestinationType.DATA_URL,
+			      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+			      allowEdit: true,
+			      encodingType: Camera.EncodingType.JPEG,
 			    };
 
-			    $cordovaCamera.getPicture(options).then(function(imageURI) {
-			      console.log(imageURI);
-			      // var image = document.getElementById('myImage');
-			      // image.src = imageURI;
+			    $cordovaCamera.getPicture(options).then(function(imageData) {
+			    	var image = document.getElementById('profile-image');
+				  	
+				  	image.src = "data:image/jpeg;base64," + imageData;
+			      	Util.localStorage.set('profileImageURI', imageData);    	
 			    }, function(err) {
-			      // error
+			     	$log.info(err);
 			    });
 			});
 		};

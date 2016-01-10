@@ -9,7 +9,7 @@ angular.module('enertalkHomeUSA.services')
 			_this.refreshtoken = undefined;
 			_this.uuid = undefined;
 			_this.profile = {};
-			_this.deviceStatus = 'NOT_REGISTERED';
+			_this.dailyPlan = 0;
 		};
 
 		this.login = function (credentials, next) {
@@ -40,6 +40,9 @@ angular.module('enertalkHomeUSA.services')
 			.then(function (response) {
 				if (response.status === 200 && response.data) {
 					_this.profile = response.data;
+					_this.setDailyPlan(_this.profile.maxLimitUsage);
+					console.log(_this.profile);
+					console.log(_this.dailyPlan);
 				} else {
 					return $q.reject();
 				}
@@ -54,6 +57,15 @@ angular.module('enertalkHomeUSA.services')
 
 		this.logout = function () {
 
+		};
+
+		this.setDailyPlan = function (monthlyPlan) {
+			var now = new Date(),
+				start = new Date(now.getFullYear(), now.getMonth(), 1),
+				end = new Date(now.getFullYear(), now.getMonth() + 1, 0),
+				lengthOfThisMonth = end.getDate() - start.getDate() + 1;
+
+			_this.dailyPlan = monthlyPlan / lengthOfThisMonth;
 		};
 
 		_this.init();
