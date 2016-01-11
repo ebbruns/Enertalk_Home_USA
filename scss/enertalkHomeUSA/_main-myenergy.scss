@@ -1,5 +1,5 @@
 #myenergy {
-	padding: 8px 12px 8px;
+	padding-top: 8px;
 		
 	.scroll {
 		height: 100%;
@@ -13,6 +13,8 @@
 		border: 1px solid #A0A3B2;
 		border-radius: 8px;
 		margin-bottom: 4px;
+		margin-left: 12px;
+		margin-right: 12px;
 
 		.header {
 			height: 36px;
@@ -35,11 +37,11 @@
 		}
 
 		#kwh-chart {
-			height: calc(70% - 36px);
+			height: calc(60% - 36px);
 		}
 
 		.footer {
-			height: 30%;
+			height: 40%;
 			.footer-list {
 				height: 50%;
 				padding-left: 18px;
@@ -47,15 +49,15 @@
 
 				.list-image {
 					display: inline-block;
-					width: 36px;
-					height: 36px;
+					width: 48px;
+					height: 48px;
 					position: absolute;
-					top: calc(50% - 18px);
+					top: calc(50% - 24px);
 					&.co2 {
-						content: url('../img/line_co2.png');
+						content: url('../img/co2.png');
 					}
 					&.tree {
-						content: url('../img/line_tree.png');
+						content: url('../img/trees.png');
 					}
 				}
 				.list-label {
@@ -69,6 +71,9 @@
 	}
 
 	#myenergy-nonkwh-container {
-		height: 13%;
+		height: 15%;
+		&.activated {
+			background-color: #f0f0f0;
+		}
 	}
 }

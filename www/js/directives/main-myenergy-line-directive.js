@@ -9,16 +9,6 @@ angular.module('enertalkHomeUSA')
 	      	},
       		link: function (scope, element) {
         		
-      			scope.init = function () {
-      				scope.height = scope.height + 'px';
-      				if (scope.type === 'co2') {
-      					scope.isUsageTrends = true;
-      				} else {
-      					scope.isUsageTrends = false;
-      				}
-      			};
-
-      			scope.init();
       		}
     	};
   	});
