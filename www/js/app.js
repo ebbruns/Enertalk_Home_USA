@@ -24,101 +24,101 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
 })
 
 .config(function ($stateProvider, $urlRouterProvider) {
-  $stateProvider
+    $stateProvider
 
-    // intro views
-    .state('intro', {
-        url: '/intro',
-        abstract: true,
-        templateUrl: 'templates/intro/intro.html',
-        controller: 'IntroCtrl'
+      // intro views
+      .state('intro', {
+          url: '/intro',
+          abstract: true,
+          templateUrl: 'templates/intro/intro.html',
+          controller: 'IntroCtrl'
       })
 
-    .state('intro.login', {
-      url: '/login',
-      views: {
-        'introContent': {
-          templateUrl: 'templates/intro/intro-login.html',
-          controller: 'IntroLoginCtrl'
-        }
-      }
-    })
-    // ------------------------------------------
+      .state('intro.login', {
+          url: '/login',
+          views: {
+              'introContent': {
+                  templateUrl: 'templates/intro/intro-login.html',
+                  controller: 'IntroLoginCtrl'
+              }
+          }
+      })
+      // ------------------------------------------
 
-    // tab view
-    .state('main', {
-      url: '/main',
-      cache: false,
-      abstract: true,
-      templateUrl: 'templates/main/main.html',
-      controller: 'MainCtrl'
-    })
-    // --------------------------------------------
+      // tab view
+      .state('main', {
+          url: '/main',
+          cache: false,
+          abstract: true,
+          templateUrl: 'templates/main/main.html',
+          controller: 'MainCtrl'
+      })
+      // --------------------------------------------
 
-    // myenergy views
-    .state('main.myenergy', {
-      url: '/myenergy',
-      views: {
-        'MyenergyContent': {
-          templateUrl: 'templates/main/myenergy.html',
-          controller: 'MainMyenergyCtrl'
-        }
-      }
-    })
+      // myenergy views
+      .state('main.myenergy', {
+          url: '/myenergy',
+          views: {
+              'MyenergyContent': {
+                  templateUrl: 'templates/main/myenergy.html',
+                  controller: 'MainMyenergyCtrl'
+              }
+          }
+      })
 
-    .state('main.kwh-usage', {
-      url: '/kwh-usage',
-      views: {
-        'MyenergyContent': {
-          templateUrl: 'templates/main/kwh-usage.html',
-          controller: 'KwhUsageCtrl'
-        }
-      }
-    })
+      .state('main.kwh-usage', {
+          url: '/kwh-usage',
+          views: {
+              'MyenergyContent': {
+                  templateUrl: 'templates/main/kwh-usage.html',
+                  controller: 'KwhUsageCtrl'
+              }
+          }
+      })
 
-    .state('main.usage-trends', {
-      url: '/usage-trends',
-      views: {
-        'MyenergyContent': {
-          templateUrl: 'templates/main/usage-trends.html',
-          controller: 'UsageTrendsCtrl'
-        }
-      }
-    })
+      .state('main.usage-trends', {
+          url: '/usage-trends',
+          views: {
+              'MyenergyContent': {
+                  templateUrl: 'templates/main/usage-trends.html',
+                  controller: 'UsageTrendsCtrl'
+              }
+          }
+      })
 
-    .state('main.energy-calendar', {
-      url: '/energy-calendar',
-      views: {
-        'MyenergyContent': {
-          templateUrl: 'templates/main/energy-calendar.html',
-          controller: 'EnergyCalendarCtrl'
-        }
-      }
-    })
-    // ------------------------------------------
-
-
-    // community views
-    .state('main.community', {
-      url: '/community',
-      views: {
-        'CommunityContent': {
-          templateUrl: 'templates/main/community.html',
-          controller: 'MainCommunityCtrl'
-        }
-      }
-    })
+      .state('main.energy-calendar', {
+          url: '/energy-calendar',
+          views: {
+              'MyenergyContent': {
+                  templateUrl: 'templates/main/energy-calendar.html',
+                  controller: 'EnergyCalendarCtrl'
+              }
+          }
+      })
+      // ------------------------------------------
 
 
-    .state('main.compete', {
-        url: '/compete',
-        views: {
-            'CommunityContent': {
-                templateUrl: 'templates/main/compete.html',
-                controller: 'CommCompeteCtrl'
-            }
-        }
-    })
+      // community views
+      .state('main.community', {
+          url: '/community',
+          views: {
+              'CommunityContent': {
+                  templateUrl: 'templates/main/community.html',
+                  controller: 'MainCommunityCtrl'
+              }
+          }
+      })
+
+
+      .state('main.compete', {
+          url: '/compete',
+          views: {
+              'CommunityContent': {
+                  templateUrl: 'templates/main/compete.html',
+                  controller: 'CommCompeteCtrl'
+              }
+          }
+      })
 
     .state('main.compare', {
             url: '/compare',
@@ -128,7 +128,57 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
                     controller: 'CommCompareCtrl'
                 }
             }
-        })
+    })
+
+    .state('main.compare-edit-intro', {
+        url: '/edit-intro',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compare-edit-intro.html',
+                controller: 'CommCompareEditCtrl'
+            }
+        }
+    })
+
+    .state('main.compare-edit-size', {
+        url: '/edit-size',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compare-edit-size.html',
+                controller: 'CommCompareEditCtrl'
+            }
+        }
+    })
+
+    .state('main.compare-edit-rooms', {
+        url: '/edit-rooms',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compare-edit-rooms.html',
+                controller: 'CommCompareEditCtrl'
+            }
+        }
+    })
+
+    .state('main.compare-edit-features', {
+        url: '/edit-features',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compare-edit-features.html',
+                controller: 'CommCompareEditCtrl'
+            }
+        }
+    })
+
+    .state('main.compare-edit-family', {
+        url: '/edit-family',
+        views: {
+            'CommunityContent': {
+                templateUrl: 'templates/main/compare-edit-family.html',
+                controller: 'CommCompareEditCtrl'
+            }
+        }
+    })
 
         .state('main.forum', {
             url: '/forum',

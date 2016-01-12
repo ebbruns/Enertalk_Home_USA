@@ -9913,11 +9913,7 @@ a.button {
     margin-bottom: 1%;
     padding-left: 3%; }
     #community .community-container a {
-<<<<<<< HEAD
-      color: black;
-=======
       color: #000000;
->>>>>>> 25d75c0904fe8a92d689459a3fd3802349f3f954
       text-decoration: none; }
     #community .community-container .header {
       height: 36px;

@@ -6,10 +6,10 @@ angular.module('enertalkHomeUSA.controllers')
       };
 
       $scope.compare = function () {
-          $state.go('main.compare');
+          $state.go('main.compare-edit-intro');
       };
 
-      //Stub for when the app has a built in forum feature instead of a FB link
+      //Stub for when the app has a built in forum feature instead of a Facebook link
       //$scope.forum = function () {
           //$state.go('main.forum');
       //};
