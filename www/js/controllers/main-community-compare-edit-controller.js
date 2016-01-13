@@ -22,6 +22,7 @@ angular.module('enertalkHomeUSA.controllers')
     }
 
     $scope.doneEditing = function () {
+        //home.done = true;  ??? is this how to make a flag to show done-ness?
         $state.go('main.compare');
     }
 });

@@ -18,4 +18,8 @@ angular.module('enertalkHomeUSA.controllers')
           $state.go('main.donate');
       };
 
+      $scope.homeDR = function () {
+          $state.go('main.home-dr')
+      };
+
   });

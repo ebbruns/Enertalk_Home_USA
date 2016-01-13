@@ -199,6 +199,16 @@ angular.module('enertalkHomeUSA', ['ionic', 'enertalkHomeUSA.controllers', 'ener
                 }
             }
         })
+
+        .state('main.home-dr', {
+            url: '/home-dr',
+            views: {
+                'CommunityContent': {
+                    templateUrl: 'templates/main/home-dr.html',
+                    controller: "CommDonateCtrl"
+                }
+            }
+        })
     // --------------------------------------
 
 
