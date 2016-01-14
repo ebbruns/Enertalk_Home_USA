@@ -9915,6 +9915,10 @@ a.button {
   #community img.center {
     margin-right: 10px;
     vertical-align: middle; }
+  #community p {
+    margin-left: 70px;
+    font-size: 16px;
+    color: gray; }
   #community .community-container {
     display: block;
     height: 15%;
