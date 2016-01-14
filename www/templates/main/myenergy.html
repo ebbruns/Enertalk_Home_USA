@@ -1,10 +1,9 @@
-<ion-view view-title="MyEnergy">
+<ion-view>
 	<ion-content id="myenergy" has-bouncing="false">
 	  	<div id="myenergy-kwh-container" ng-click="goToDetailView('kwh')">
 	  		
 	  		<div class="header">
 	  			<span class="header-title">Today</span>
-	  			<span class="edit-button"></span>
 	  		</div>
 
 	  		<div id="kwh-chart"></div>
@@ -12,18 +11,18 @@
 	  		<div class="footer">
 	  			<div class="footer-list">
 	  				<span class="list-image co2"></span>
-	  				<span class="list-label">3.2kg co2 emitted</span>
+	  				<span class="list-label">{{data.co2Emitted}}kg co2 emitted</span>
 	  			</div>
 	  			<div class="footer-list">
 	  				<span class="list-image tree"></span>
-	  				<span class="list-label">2.4 Pine trees saved</span>
+	  				<span class="list-label">{{data.treeNeeded}} Pine trees saved</span>
 	  			</div>
 	  		</div>
 	
 		</div>
 	  	
-	  	<div id="myenergy-nonkwh-container" ng-repeat="item in myenergyItems">
-	  		<myenergy-line label="{{item.label}}" type="{{item.type}}" ng-click="goToDetailView(item.type)">
+	  	<div id="myenergy-nonkwh-container" ng-repeat="item in myenergyItems" ng-click="goToDetailView(item.type)">
+	  		<myenergy-line label="{{item.label}}" type="{{item.type}}">
 	  	</div>
 	
 	</ion-content>
