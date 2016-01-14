@@ -125,7 +125,7 @@ angular.module('enertalkHomeUSA', ['ionic', 'ngCordova', 'enertalkHomeUSA.contro
             views: {
                 'CommunityContent': {
                     templateUrl: 'templates/main/compare.html',
-                    controller: 'CommCompareCtrl'
+                    controller: 'CommCompareCtrl'  //testing
                 }
             }
     })
