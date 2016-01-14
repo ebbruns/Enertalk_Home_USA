@@ -1,7 +1,7 @@
-<ion-view>
+<ion-view view-title="ENERGY CALENDAR">
 	<ion-content id="energy-calendar" has-bouncing="false">
 		
-		<div id="title">Energy Calendar</div>
+	<!-- 	<div id="title">Energy Calendar</div> -->
 		
 		<div id="calendar-header">
 			<span class="ion-chevron-left calendar-button left" ng-click="button.clickLeft()"></span>
@@ -13,7 +13,7 @@
 			<div id="calendar">
 				<span class="day-elem" ng-repeat="dayOfWeek in dayOfWeekList" ng-bind="dayOfWeek"></span>
 				<span class="elem" ng-repeat="date in dateList">
-					<span class="elem-header" ng-bind="date.date"></span>
+					<span class="elem-header"></span>
 					<span class="elem-badge" ng-class="{'smile': date.image}"></span>
 				</span>
 			</div>

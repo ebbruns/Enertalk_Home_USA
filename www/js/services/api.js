@@ -14,5 +14,28 @@ angular.module('enertalkHomeUSA.services')
 				}
 			});
 		};
-		
+		this.getPeriodicUsage = function (accesstoken, uuid, period) {
+			return $http({
+				method: 'GET',
+				url: APIURL.periodicUsage(uuid),
+				headers: {
+					'Authorization': Util.encodeAuthHeader.bearer(accesstoken)
+				},
+				params: {
+					period: period.unit,
+					start: period.start,
+					end: period.end
+				}
+			});
+		};
+		this.getMeteringUsage = function (accesstoken, uuid) {
+			return $http({
+				method: 'GET',
+				url: APIRUL.merteringUsage(uuid),
+				headers: {
+					'Authorization': Util.encodeAuthHeader.bearer(accesstoken)
+				}
+			})
+		};
+
 	});

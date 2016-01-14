@@ -1,6 +1,6 @@
 angular.module('enertalkHomeUSA.controllers')
 	
-	.controller('EnergyCalendarCtrl', function($scope) {
+	.controller('EnergyCalendarCtrl', function($scope, EnergyCalendarModel) {
 		var currentYear,
 			currentMonth;
 
@@ -12,6 +12,10 @@ angular.module('enertalkHomeUSA.controllers')
 
 			makeCalendarHeader(currentYear, currentMonth);
 			makeCalendar(currentYear, currentMonth);
+
+			EnergyCalendarModel.getModel().then(function (response) {
+				console.log(response);
+			});
 		}
 
 		function getMonthName (month) {
