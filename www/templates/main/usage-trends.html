@@ -1,6 +1,35 @@
-<ion-view>
-	<ion-content id="usage-trends">
-		<div id="title">Usage trends</div>
+<ion-view view-title="Usage Trends" id="usage-trends">
+	
+	<div class="tabs-top tabs-background-positive tabs-color-light">
+	    <div class="tabs">
+	    	
+	    	<a class="tab-item" ng-repeat="tab in tabs" ng-bind="tab.label" ng-class="{'active': tab.label === currentTab.label}" ng-click="clickTab($index)">
+	    	</a>  	
+	    
+	    </div>
+	</div>
 
+	<ion-content id="usage-trends-detail" scroll="false">
+		
+		<div id="chart"></div>
+		
+		<div id="detail">
+
+			<div class="detail header">
+				<span class="elem">date</span>
+				<span class="elem">kwh</span>
+				<span class="elem">plan (%)</span>
+				<span class="elem">active</span>
+			</div>
+			
+			<div id="detail-container">
+				<div class="detail" ng-repeat="data in currentTab.dataList">
+					<span class="elem">{{label.getDayLabel(data.x)}}</span>
+					<span class="elem">{{label.getkWhLabel(data.y)}}</span>
+					<span class="elem" ng-class="{'plan-up': data.y >= currentTab.plan, 'plan-down': data.y < currentTab.plan}">{{label.getPlanLabel(data.y)}}</span>
+					<span class="elem" ng-bind="detail.active"></span>
+				</div>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>

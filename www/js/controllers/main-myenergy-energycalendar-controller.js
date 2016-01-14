@@ -10,11 +10,13 @@ angular.module('enertalkHomeUSA.controllers')
 			currentYear = currentDate.getFullYear();
 			currentMonth = currentDate.getMonth() + 1;
 
-			makeCalendarHeader(currentYear, currentMonth);
-			makeCalendar(currentYear, currentMonth);
-
 			EnergyCalendarModel.getModel().then(function (response) {
 				console.log(response);
+				$scope.dataList = response.dataList;
+				$scope.totalUsage = (response.totalUsage / 1000000).toFixed(2);
+				$scope.forecastUsage = (response.forecastUsage / 1000000).toFixed(2);
+				makeCalendarHeader(currentYear, currentMonth);
+				makeCalendar(currentYear, currentMonth);
 			});
 		}
 
@@ -75,17 +77,14 @@ angular.module('enertalkHomeUSA.controllers')
 			end = new Date(start.getFullYear(), start.getMonth() + 1, 0),
 			dateList = [];
 
-			for (var i = 0; i < end.getDate() + start.getDay(); i += 1) {
+			for (var i = 0; i < 42; i += 1) {
 				if (i < start.getDay()) {
 					dateList.push({
-						date: '',
-						image: ''
+						timestamp: undefined,
+						excessPlan: undefined
 					});
 				} else {
-					dateList.push({
-						date: i - start.getDay() + 1,
-						image: 'a'
-					});
+					dateList.push($scope.dataList[i - start.getDay()]);
 				}
 			}
 
@@ -108,6 +107,12 @@ angular.module('enertalkHomeUSA.controllers')
 
 				makeCalendarHeader(currentYear, currentMonth);
 				makeCalendar(currentYear, currentMonth);
+			},
+			switchCalendar1: function () {
+				
+			},
+			switchCalendar2: function () {
+
 			}
 		};
 

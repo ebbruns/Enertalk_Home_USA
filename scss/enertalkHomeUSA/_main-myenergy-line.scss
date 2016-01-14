@@ -4,11 +4,15 @@
 	height: 100%;
 	
 	.line-container {
-		border-bottom: 1px solid #A0A3B2;
-		padding-left: 30px;
+		border: 1px solid #A0A3B2;
+		border-radius: 8px;
+		margin-left: 12px;
+		margin-right: 12px;
+		padding-left: 20px;
 		height: 100%;
 		position: relative;
 		vertical-align: middle;
+		box-shadow: 2px 2px 5px #A0A3B2;
 
 		.line-image {
 			display: inline-block;
@@ -18,16 +22,16 @@
 			top: calc(50% - 24px);
 
 			&.usage-trends {
-				content: url('../img/usage_trends.png');
+				content: url('../img/Enertalk_icons_0015_Vector-Smart-Object.png');
 			}
-			&.usage-calendar {
-				content: url('../img/usage_calendar.png');
+			&.energy-calendar {
+				content: url('../img/Enertalk_icons_0014_Vector-Smart-Object.png');
 			}
 			&.realtime-usage {
-				content: url('../img/realtime_usage.png');
+				content: url('../img/Enertalk_icons_0013_Vector-Smart-Object.png');
 			}
 			&.standby-power {
-				content: url('../img/standby_power.png');
+				content: url('../img/Enertalk_icons_0012_Vector-Smart-Object.png');
 			}
 		}
 		.line-label {

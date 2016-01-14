@@ -9,8 +9,8 @@ angular.module('enertalkHomeUSA.controllers')
 			date = now.getDate();
 			$scope.now = month + '/' + date + '/' + year;
 	
-			renderFirstChart();
-			renderSecondChart();
+			// renderFirstChart();
+			// renderSecondChart();
 		}
 
 		function renderFirstChart () {
