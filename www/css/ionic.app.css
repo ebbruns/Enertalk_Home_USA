@@ -9910,7 +9910,8 @@ a.button {
   overflow: hidden; }
   #community img {
     padding: 0px 0px 0px 0px;
-    overflow: hidden; }
+    overflow: hidden;
+    margin-bottom: 5px; }
   #community img.center {
     margin-right: 10px;
     vertical-align: middle; }
