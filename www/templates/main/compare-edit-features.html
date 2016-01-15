@@ -1,6 +1,28 @@
 <ion-view view-title="Neighbor Comparison">
 	<ion-content id="compare-edit-features">
 
+        Which of the following features does your home have?
+        <br />
+
+        Do you have a garage?
+        <input type="checkbox" ng-model="home.garage">
+        <br />
+
+        Do you have a jacuzzi?
+        <input type="checkbox" ng-model="home.jacuzzi">
+        <br />
+
+        Do you have an electric car?
+        <input type="checkbox" ng-model="home.electric_car">
+        <br />
+
+        Do you have a swimming pool?
+        <input type="checkbox" ng-model="home.pool">
+
+        <br />
+
+
+
         <button class="button button-block button-positive" ng-click="doneEditing()">Done!</button>
 
         
