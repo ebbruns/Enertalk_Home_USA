@@ -9906,7 +9906,6 @@ a.button {
       padding-bottom: 30px; }
 
 #community {
-  padding: 8px 12px 8px;
   font-size: 20px;
   overflow: hidden; }
   #community img {
@@ -9919,9 +9918,11 @@ a.button {
     margin-left: 70px;
     font-size: 16px;
     color: gray; }
+  #community p.alt {
+    margin-left: 50px; }
   #community .community-container {
     display: block;
-    height: 15%;
+    height: 20%;
     border-bottom: 1px solid #A0A3B2;
     padding-bottom: 2%;
     padding-top: 2%;
