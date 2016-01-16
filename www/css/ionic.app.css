@@ -10065,13 +10065,15 @@ a.button {
       position: absolute;
       top: calc(50% - 24px); }
       #main-myenergy-line .line-container .line-image.usage-trends {
-        content: url("../img/Enertalk_icons_0015_Vector-Smart-Object.png"); }
+        content: url("../img/UsageTrends.jpe"); }
       #main-myenergy-line .line-container .line-image.energy-calendar {
-        content: url("../img/Enertalk_icons_0014_Vector-Smart-Object.png"); }
+        content: url("../img/energycalendar.png"); }
       #main-myenergy-line .line-container .line-image.realtime-usage {
-        content: url("../img/Enertalk_icons_0013_Vector-Smart-Object.png"); }
+        content: url("../img/realtime.png"); }
       #main-myenergy-line .line-container .line-image.standby-power {
-        content: url("../img/Enertalk_icons_0012_Vector-Smart-Object.png"); }
+        content: url("../img/stanbypower.jpg"); }
+      #main-myenergy-line .line-container .line-image.bill-estimator {
+        content: url("../img/bill.png"); }
     #main-myenergy-line .line-container .line-label {
       position: absolute;
       top: calc(50% - 10px);

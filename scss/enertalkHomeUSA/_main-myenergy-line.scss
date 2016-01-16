@@ -22,16 +22,19 @@
 			top: calc(50% - 24px);
 
 			&.usage-trends {
-				content: url('../img/Enertalk_icons_0015_Vector-Smart-Object.png');
+				content: url('../img/UsageTrends.jpe');
 			}
 			&.energy-calendar {
-				content: url('../img/Enertalk_icons_0014_Vector-Smart-Object.png');
+				content: url('../img/energycalendar.png');
 			}
 			&.realtime-usage {
-				content: url('../img/Enertalk_icons_0013_Vector-Smart-Object.png');
+				content: url('../img/realtime.png');
 			}
 			&.standby-power {
-				content: url('../img/Enertalk_icons_0012_Vector-Smart-Object.png');
+				content: url('../img/stanbypower.jpg');
+			}
+			&.bill-estimator {
+				content: url('../img/bill.png');
 			}
 		}
 		.line-label {

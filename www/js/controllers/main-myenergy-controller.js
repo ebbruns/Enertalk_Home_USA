@@ -16,6 +16,9 @@ angular.module('enertalkHomeUSA.controllers')
     		},{
     			label: 'Standby Power',
     			type: 'standby-power'
+    		}, {
+    			label: 'Bill Estimator',
+    			type: 'bill-estimator'
     		}];
 
     		MyenergyModel.getModel().then(function (response) {

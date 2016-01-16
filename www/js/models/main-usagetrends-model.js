@@ -16,7 +16,8 @@ angular.module('enertalkHomeUSA.services')
 			Api.getPeriodicUsage(User.accesstoken, User.uuid, period)
 			.then(function (response) {
 				if (response.status === 200) {
-					var dataList = refineData(response.data);
+					console.log(response);
+					var dataList = refineData(response.data, 'day');
 					deferred.resolve(dataList);
 				} else {
 					deferred.reject('');
@@ -45,7 +46,8 @@ angular.module('enertalkHomeUSA.services')
 			Api.getPeriodicUsage(User.accesstoken, User.uuid, period)
 			.then(function (response) {
 				if (response.status === 200) {
-					var dataList = refineData(response.data);
+					var dataList = refineData(response.data, 'week');
+					console.log(dataList);
 					deferred.resolve(dataList);
 				} else {
 					deferred.reject('');
@@ -73,7 +75,7 @@ angular.module('enertalkHomeUSA.services')
 			Api.getPeriodicUsage(User.accesstoken, User.uuid, period)
 			.then(function (response) {
 				if (response.status === 200) {
-					var dataList = refineData(response.data);
+					var dataList = refineData(response.data, 'month');
 					deferred.resolve(dataList);
 				} else {
 					deferred.reject('');
@@ -113,15 +115,71 @@ angular.module('enertalkHomeUSA.services')
 			return deferred.promise;
 		};
 
-		function refineData (dataList) {
-			var returnData = [];
+		function refineData (dataList, type) {
+			var returnData = [],
+				now = new Date(),
+				tempDate;
 
-			angular.forEach(dataList, function (data) {
-				returnData.push({
-					x: data.timestamp,
-					y: data.unitPeriodUsage
+			if (type === 'day') {
+				angular.forEach(dataList, function (data) {
+					returnData.push({
+						x: data.timestamp,
+						y: data.unitPeriodUsage
+					});
 				});
-			});
+				if (returnData.length) {
+					tempDate = new Date(returnData[returnData.length - 1].x);
+					tempDate.setHours(tempDate.getHours() + 1);
+					while(tempDate.getHours() !== 0) {
+						returnData.push({
+							x: tempDate.getTime(),
+							y: 0
+						});
+						tempDate.setHours(tempDate.getHours() + 1);
+						
+					}
+				}
+			}
+
+			if (type === 'week') {
+				angular.forEach(dataList, function (data) {
+					returnData.push({
+						x: data.timestamp,
+						y: data.unitPeriodUsage
+					});
+				});
+				if (returnData.length) {
+					tempDate = new Date(returnData[returnData.length - 1].x);
+					tempDate.setDate(tempDate.getDate() + 1);
+					while(tempDate.getDay() !== 0) {
+						returnData.push({
+							x: tempDate.getTime(),
+							y: 0
+						});
+						tempDate.setDate(tempDate.getDate() + 1);
+					}
+				}
+			}
+
+			if (type === 'month') {
+				angular.forEach(dataList, function (data) {
+					returnData.push({
+						x: data.timestamp,
+						y: data.unitPeriodUsage
+					});
+				});
+				if (returnData.length) {
+					tempDate = new Date(returnData[returnData.length - 1].x);
+					tempDate.setDate(tempDate.getDate() + 1);
+					while(tempDate.getDate() !== 1) {
+						returnData.push({
+							x: tempDate.getTime(),
+							y: 0
+						});
+						tempDate.setDate(tempDate.getDate() + 1);
+					}
+				}
+			}
 
 			return returnData;
 		}

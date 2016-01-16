@@ -23,9 +23,7 @@ angular.module('enertalkHomeUSA.controllers')
 			plan: User.profile.maxLimitUsage,
 			model: UsageTrendsModel.getYearData
 		}];
-
-		console.log($scope.tabs);
-
+		$scope.dailyPlan = User.dailyPlan;
 		$scope.currentTab = $scope.tabs[0];
 
 		$scope.clickTab = function (index) {
@@ -45,9 +43,12 @@ angular.module('enertalkHomeUSA.controllers')
 			UsageTrendsModel.getDayData()
 			.then(function (response) {
 				$scope.currentTab.dataList = response;
-				console.log($scope.currentTab.dataList);
 				drawChart();
 			});
+			UsageTrendsModel.getMonthData()
+			.then(function (response) {
+				$scope.detailDataList = response;
+			})
 		}
 
 		function drawChart () {
@@ -120,9 +121,7 @@ angular.module('enertalkHomeUSA.controllers')
 			getDayLabel: function (timestamp) {
 				var date = new Date(timestamp),
 					dayLabel;
-				if ($scope.currentTab.label === 'day') {
-					dayLabel = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getHours();
-				} else if ($scope.currentTab.label === 'year') {
+				if ($scope.currentTab.label === 'year') {
 					dayLabel = date.getFullYear() + '/' + (date.getMonth() + 1);
 				} else {
 					dayLabel = (date.getMonth() + 1) + '/' + date.getDate();
@@ -133,7 +132,8 @@ angular.module('enertalkHomeUSA.controllers')
 				return (usage / 1000000).toFixed(2);
 			},
 			getPlanLabel: function (usage) {
-				var diff = (((usage - $scope.currentTab.plan) / $scope.currentTab.plan) * 100).toFixed(1);
+				var dailyPlan = $scope.dailyPlan,
+					diff = (((usage - dailyPlan) / dailyPlan) * 100).toFixed(1);
 
 				if (diff >= 0) {
 					return '+' + diff;
@@ -141,6 +141,10 @@ angular.module('enertalkHomeUSA.controllers')
 					return '-' + Math.abs(diff);
 				}
 			}
-		}
+		};
+
+		$scope.removeZero = function (item) {
+			return item.y > 0;
+		};
 		init ();
 	});

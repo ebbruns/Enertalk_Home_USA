@@ -17,16 +17,16 @@
 
 			<div class="detail header">
 				<span class="elem">date</span>
-				<span class="elem">kwh</span>
+				<span class="elem">kWh</span>
 				<span class="elem">plan (%)</span>
 				<span class="elem">active</span>
 			</div>
 			
 			<div id="detail-container">
-				<div class="detail" ng-repeat="data in currentTab.dataList">
+				<div class="detail" ng-repeat="data in detailDataList | filter: removeZero">
 					<span class="elem">{{label.getDayLabel(data.x)}}</span>
 					<span class="elem">{{label.getkWhLabel(data.y)}}</span>
-					<span class="elem" ng-class="{'plan-up': data.y >= currentTab.plan, 'plan-down': data.y < currentTab.plan}">{{label.getPlanLabel(data.y)}}</span>
+					<span class="elem" ng-class="{'plan-up': data.y >= dailyPlan, 'plan-down': data.y < dailyPlan}">{{label.getPlanLabel(data.y)}}</span>
 					<span class="elem" ng-bind="detail.active"></span>
 				</div>
 			</div>
