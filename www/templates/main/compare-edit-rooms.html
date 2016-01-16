@@ -1,17 +1,17 @@
 <ion-view view-title="Neighbor Comparison">
 	<ion-content id="compare-edit-rooms">
+        <div id="compare">
+            How many bedrooms does your home have?
+            <label class="item item-input">
+                <input type="text" value="{{home.bedrooms}}" placeholder="Number of Bedrooms" ng-model="home.bedrooms">
+            </label>
 
-        How many bedrooms does your home have?
-        <label class="item item-input">
-            <input type="text" value="{{home.bedrooms}}" placeholder="Number of Bedrooms" ng-model="home.bedrooms">
-        </label>
+            How many bathrooms does your home have?
+            <label class="item item-input">
+                <input type="text" value="{{home.bathrooms}}" placeholder="Number of Bathrooms" ng-model="home.bathrooms">
+            </label>
 
-        How many bathrooms does your home have?
-        <label class="item item-input">
-            <input type="text" value="{{home.bathrooms}}" placeholder="Number of Bathrooms" ng-model="home.bathrooms">
-        </label>
-
-        <button class="button button-block button-positive" ng-click="gotoFeatures()">Continue</button>
-
-    </ion-content>
+            <button class="button button-block button-positive" ng-click="gotoFeatures()">Continue</button>
+        </div>
+</ion-content>
 </ion-view>

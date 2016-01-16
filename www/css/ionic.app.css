@@ -9976,6 +9976,11 @@ a.button {
   #community #community-alt-container {
     height: 15%; }
 
+#compare {
+  font-size: 20px;
+  background: linear-gradient(white, pink);
+  height: 100%; }
+
 #setting {
   padding: 8px 12px 8px; }
   #setting #setting-container .item {
