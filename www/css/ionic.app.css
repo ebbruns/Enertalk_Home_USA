@@ -9811,35 +9811,32 @@ a.button {
   padding: 8px 12px 8px; }
   #kwh-usage .scroll {
     height: 100%; }
-  #kwh-usage .scroll-bar {
-    visibility: hidden; }
-  #kwh-usage #header {
-    height: 56px; }
-    #kwh-usage #header #date {
-      text-align: right; }
-    #kwh-usage #header #title {
-      text-align: center;
-      font-size: 20px;
-      color: #878787; }
-  #kwh-usage #main-contents-container {
-    height: calc(60% - 56px);
-    padding-top: 30px; }
-    #kwh-usage #main-contents-container #usage-percent {
-      display: block;
-      text-align: center;
-      font-size: 64px;
-      height: 48px; }
-    #kwh-usage #main-contents-container #usage-percent-text {
-      text-align: center; }
-    #kwh-usage #main-contents-container #usage-percent-chart {
-      height: 50px; }
-    #kwh-usage #main-contents-container #usage-percent-subtext .subtext {
-      display: block;
+  #kwh-usage #header-content {
+    height: 20%;
+    padding-top: 30px;
+    padding-left: 8px; }
+    #kwh-usage #header-content .line {
+      height: 28px;
+      line-height: 28px;
       font-size: 16px; }
-  #kwh-usage #sub-contents-container {
-    height: 40%; }
-    #kwh-usage #sub-contents-container #sub-contents-chart {
-      height: 80%; }
+      #kwh-usage #header-content .line .subject {
+        display: inline-block;
+        width: 50%;
+        text-align: left; }
+      #kwh-usage #header-content .line .figure {
+        display: inline-block;
+        width: 40%;
+        text-align: right; }
+  #kwh-usage #main-content {
+    height: 80%; }
+    #kwh-usage #main-content #guide {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px; }
+    #kwh-usage #main-content #chart {
+      height: 60%; }
+  #kwh-usage #footer-content {
+    height: 20%; }
 
 #usage-trends .tab-item {
   background-color: #FFFFFF;

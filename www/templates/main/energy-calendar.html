@@ -18,7 +18,7 @@
 				<span class="day-elem" ng-repeat="dayOfWeek in dayOfWeekList" ng-bind="dayOfWeek"></span>
 				<span class="elem" ng-repeat="date in dateList track by $index">
 					<span class="elem-header"></span>
-					<span class="elem-badge" ng-class="{'green': !date.excessPlan}"></span>
+					<span class="elem-badge" ng-class="{'green': date.excessPlan === false}"></span>
 				</span>
 			</div>
 		</div>

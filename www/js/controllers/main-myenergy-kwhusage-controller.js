@@ -1,16 +1,24 @@
 angular.module('enertalkHomeUSA.controllers')
 
-	.controller('KwhUsageCtrl', function($scope) {
+	.controller('KwhUsageCtrl', function($scope, User, KwhUsageModel) {
+		
+		$scope.dailyPlan = (User.dailyPlan / 1000000).toFixed(2);
 
 		function init () {
-			var now = new Date(),
-			year = now.getFullYear(),
-			month = now.getMonth() + 1,
-			date = now.getDate();
-			$scope.now = month + '/' + date + '/' + year;
-	
-			// renderFirstChart();
-			// renderSecondChart();
+
+			KwhUsageModel.getDayData()
+			.then(function (response) {
+				var totalUsage = 0;
+				angular.forEach(response, function (data) {
+					totalUsage += data.y;
+				});
+				
+				$scope.dataList = response;
+				$scope.todayUsage = (totalUsage / 1000000).toFixed(2);
+				$scope.remaining = $scope.dailyPlan - $scope.todayUsage;
+
+				renderChart();
+			});
 		}
 
 		function renderFirstChart () {
@@ -66,62 +74,70 @@ angular.module('enertalkHomeUSA.controllers')
 					'stroke-linecap': 'round'
 				})
 		}
-		function renderSecondChart () {
+		function renderChart () {
 			var barOptions = {
 				chart: {
 		            type: 'column',
-		            renderTo: 'sub-contents-chart'
+		            renderTo: 'chart'
 		        },
 		        title: {
 		            text: ''
 		        },
-		        subtitle: {
-		            text: ''
-		        },
+		        
 		        xAxis: {
-		            type: 'category',
-		            labels: {
-		            	enabled: false
+		            title: {
+		                text: null
 		            },
+		            type: 'datetime',
+		            labels: {
+		            		enabled: false
+		            },
+		            lineWidth: 0,
+		            tickWidth: 0,
+		            formatter: function () {
+		            	console.log(this.x);
+		            }
 		        },
 		        yAxis: {
 		            min: 0,
+		            title: {
+		                text: ''
+		            },
 		            labels: {
 		            	enabled: false
 		            },
-		            title: {
-		            	text: ''
+		            gridLineWidth: 0,
+		            plotLines: [{
+	                    value: User.dailyPlan / 24,
+	                    color: '#999999',
+	                    width: 2,
+	                    label: {
+	                    	enabled: false
+	                        // text: 'daily plan'
+	                    }
+                	}]
+		        },
+		        tooltip: {
+		       			enabled: false
+		        },
+		        plotOptions: {
+		            bar: {
+		                dataLabels: {
+		                    enabled: false
+		                }
 		            }
 		        },
 		        legend: {
 		            enabled: false
 		        },
-		        tooltip: {
-		            pointFormat: ''
+		        credits: {
+		            enabled: false
 		        },
 		        series: [{
-		            name: 'Population',
-		            data: [
-		                ['Shanghai', 23.7],
-		                ['Lagos', 16.1],
-		                ['Instanbul', 14.2],
-		                ['Karachi', 14.0],
-		                ['Mumbai', 12.5],
-		                ['Moscow', 12.1],
-		                ['São Paulo', 11.8],
-		                ['Beijing', 11.7],
-		                ['Guangzhou', 11.1],
-		                ['Delhi', 11.1]
-		            ],
-		            dataLabels: {
-		                enabled: false
-		            },
-		            
-		        }],
-		        
-		        credits: {
-		        		enabled: false
-		        }
+		        	name: '',
+		        	data: $scope.dataList,
+		        	color: '#2D71E7'
+		        }]
 			};
 
 			$scope.chart = new Highcharts.chart(barOptions)
