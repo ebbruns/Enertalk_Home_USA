@@ -9917,7 +9917,7 @@ a.button {
     margin-left: 70px;
     margin-top: -15px;
     color: gray;
-    font-size: 10px; }
+    font-size: 12px; }
   #community p.alt {
     margin-top: 0px;
     margin-left: 50px;
@@ -9975,6 +9975,22 @@ a.button {
 				} */ }
   #community #community-alt-container {
     height: 15%; }
+
+#compare {
+  font-size: 20px;
+  background: linear-gradient(white, pink);
+  height: 100%; }
+  #compare .scroll {
+    height: 100%; }
+  #compare .button {
+    margin-bottom: 50%;
+    margin-top: 5%; }
+  #compare h4 {
+    margin-bottom: 5%;
+    margin-top: 5%;
+    text-align: center; }
+  #compare img {
+    max-width: 100%; }
 
 #setting {
   padding: 8px 12px 8px; }
