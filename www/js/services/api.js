@@ -35,7 +35,15 @@ angular.module('enertalkHomeUSA.services')
 				headers: {
 					'Authorization': Util.encodeAuthHeader.bearer(accesstoken)
 				}
-			})
+			});
 		};
-
+		this.getForecastUsage = function (accesstoken, uuid) {
+			return $http({
+				metjpd: 'GET',
+				url: APIURL.forecastUsage(uuid),
+				headers: {
+					'Authorization': Util.encodeAuthHeader.bearer(accesstoken)
+				}
+			});
+		};
 	});

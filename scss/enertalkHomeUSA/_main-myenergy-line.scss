@@ -4,11 +4,15 @@
 	height: 100%;
 	
 	.line-container {
-		border-bottom: 1px solid #A0A3B2;
-		padding-left: 30px;
+		border: 1px solid #A0A3B2;
+		border-radius: 8px;
+		margin-left: 12px;
+		margin-right: 12px;
+		padding-left: 20px;
 		height: 100%;
 		position: relative;
 		vertical-align: middle;
+		box-shadow: 2px 2px 5px #A0A3B2;
 
 		.line-image {
 			display: inline-block;
@@ -18,16 +22,21 @@
 			top: calc(50% - 24px);
 
 			&.usage-trends {
-				content: url('../img/usage_trends.png');
+				content: url('../img/UsageTrends.jpe');
 			}
-			&.usage-calendar {
-				content: url('../img/usage_calendar.png');
+			&.energy-calendar {
+				content: url('../img/energycalendar.png');
 			}
 			&.realtime-usage {
-				content: url('../img/realtime_usage.png');
+				width: 54px;
+				content: url('../img/realtime.png');
 			}
 			&.standby-power {
-				content: url('../img/standby_power.png');
+				content: url('../img/stanbypower.jpg');
+			}
+			&.bill-estimator {
+				width: 60px;
+				content: url('../img/bill_estimator.png');
 			}
 		}
 		.line-label {

@@ -5,17 +5,20 @@ angular.module('enertalkHomeUSA.controllers')
   		$scope.init = function (){
   			var target = document.getElementById('myenergy');
   			$scope.myenergyItems = [{
-    			label: 'USAGE TRENDS',
+    			label: 'Usage Trends',
     			type: 'usage-trends'
     		},{
-    			label: 'ENERGY CALENDAR',
+    			label: 'Monthly View',
     			type: 'energy-calendar'
     		},{
-    			label: 'REAL TIME USAGE',
+    			label: 'Realtime Usage',
     			type: 'realtime-usage'
     		},{
-    			label: 'STANDBY POWER',
+    			label: 'Standby Power',
     			type: 'standby-power'
+    		}, {
+    			label: 'Bill Estimator',
+    			type: 'bill-estimator'
     		}];
 
     		MyenergyModel.getModel().then(function (response) {
@@ -35,7 +38,8 @@ angular.module('enertalkHomeUSA.controllers')
 
 			        chart: {
 			        	renderTo: 'kwh-chart',
-			            type: 'solidgauge'
+			            type: 'solidgauge',
+			            background: 'transparent'
 			        },
 
 			        series: [{

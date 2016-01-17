@@ -1,6 +1,6 @@
 #myenergy {
-	padding-top: 8px;
-		
+	margin-top: 12px;
+	
 	.scroll {
 		height: 100%;
 	}
@@ -15,6 +15,7 @@
 		margin-bottom: 4px;
 		margin-left: 12px;
 		margin-right: 12px;
+		box-shadow: 2px 2px 5px #A0A3B2;
 
 		.header {
 			height: 36px;
@@ -54,10 +55,10 @@
 					position: absolute;
 					top: calc(50% - 24px);
 					&.co2 {
-						content: url('../img/co2.png');
+						content: url('../img/co2.ico');
 					}
 					&.tree {
-						content: url('../img/trees.png');
+						content: url('../img/pinetree.jpg');
 					}
 				}
 				.list-label {
@@ -65,6 +66,10 @@
 					top: calc(50% - 10px);
 					padding-left: 72px;
 					font-size: 16px;
+
+					.highlighted {
+						font-size: 20px;
+					}
 				}
 			}
 		}

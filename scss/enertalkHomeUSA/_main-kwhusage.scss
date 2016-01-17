@@ -1,56 +1,48 @@
 #kwh-usage {
 	padding: 8px 12px 8px;
-
+	
 	.scroll {
 		height: 100%;
-	}
-	.scroll-bar {
-		visibility: hidden;
-	}
-
-	#header {
-		height: 56px;
-		#date {
-			text-align: right;
-		}
-
-		#title {
-			text-align: center;
-			font-size: 20px;
-			color: #878787;
-		}
 	}	
 
-	#main-contents-container {
-		height: calc(60% - 56px);
+	#header-content {
+		height: 20%;
 		padding-top: 30px;
-		#usage-percent {
-			display: block;
-			text-align: center;
-			font-size: 64px;
-			height: 48px;
-		}
-		#usage-percent-text {
-			text-align: center;
-		}
+		padding-left: 8px;
 
-		#usage-percent-chart {
-			height: 50px;
-		}
+		.line {
+			height: 28px;
+			line-height: 28px;
+			font-size: 16px;
 
-		#usage-percent-subtext {
-			padding-left: 40px;
-			.subtext {
-				display: block;
-				font-size: 14px;
+			.subject {
+				display: inline-block;
+				width: 50%;
+				text-align: left;
 			}
+
+			.figure {
+				display: inline-block;
+				width: 40%;
+				text-align: right;
+			}
+		}		
+	}	
+
+	#main-content {
+		height: 80%;
+
+		#guide {
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 20px;
+		}
+		#chart {
+			height: 60%;
 		}
 	}
 
-	#sub-contents-container {
-		height: 40%;
-		#sub-contents-chart {
-			height: 80%;
-		}
+	#footer-content {
+		height: 20%;
 	}
 }

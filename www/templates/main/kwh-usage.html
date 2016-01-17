@@ -1,27 +1,38 @@
 <ion-view>
 	<ion-content id="kwh-usage" scroll="false">
 
-		<div id="header">
-			<div id="date" ng-bind="now"></div>
-			<div id="title">Energy Used</div>
-		</div>
+		<div id="header-content">
+			<div class="line">
+				<span class="subject">Daily Goal</span>
+				<span class="figure">{{dailyPlan}}kWh</span>
+			</div>
 
-		<div id="main-contents-container">
-			<span id="usage-percent">84%</span>
-			<div id="usage-percent-text">of your targe has been used</div>
-			<div id="usage-percent-chart"></div>
+			<div class="line">
+				<span class="subject">Today`s Usage</span>
+				<span class="figure">{{todayUsage}}kWh</span>
+			</div>
 
-			<div id="usage-percent-subtext">
-				<span class="subtext">*      Energy used today: 8.39kWh</span>
-				<span class="subtext">*      Target: 10kWh</span>
-				<span class="subtext">*      Remaing: 1.61kWh</span> 
+			<div class="line">
+				<span class="subject">Remaining</span>
+				<span class="figure">{{remaining}}kWh</span>
 			</div>
 		</div>
 
-		<div id="sub-contents-container">
-			<div id="sub-contents-chart"></div>
+		<div id="main-content">
+
+			<div id="guide">
+				If you keep your real-time usage constantly, you will meet the goal in 2 hours
+			</div>
+
+			<div id="chart">
+
+			</div>
+
 		</div>
 
+		<div id="footer-content">
 
+		</div>
+	
 	</ion-content>
 </ion-view>
