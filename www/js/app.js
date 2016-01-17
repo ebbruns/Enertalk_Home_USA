@@ -125,7 +125,7 @@ angular.module('enertalkHomeUSA', ['ionic', 'ngCordova', 'enertalkHomeUSA.contro
             views: {
                 'CommunityContent': {
                     templateUrl: 'templates/main/compare.html',
-                    controller: 'CommCompareCtrl'  //testing
+                    controller: 'CommCompareCtrl'  
                 }
             }
     })
@@ -205,7 +205,28 @@ angular.module('enertalkHomeUSA', ['ionic', 'ngCordova', 'enertalkHomeUSA.contro
             views: {
                 'CommunityContent': {
                     templateUrl: 'templates/main/home-dr.html',
-                    controller: "CommDonateCtrl"
+                    controller: 'CommDonateCtrl'
+                }
+            }
+        })
+
+        .state('main.compete-groups',{
+            url: '/groups',
+            views:{
+                'CommunityContent': {
+                    templateUrl: 'templates/main/compete-groups.html',
+                    controller: 'CommCompeteCtrl'
+                }
+            }
+        })
+    
+
+        .state('main.compete-in-group',{
+            url: '/mygroup',
+            views:{
+                'CommunityContent': {
+                    templateUrl: 'templates/main/compete-in-group.html',
+                    controller: 'CommCompeteCtrl'
                 }
             }
         })

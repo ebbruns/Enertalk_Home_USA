@@ -1,12 +1,13 @@
 <ion-view view-title="Neighbor Comparison">
 	<ion-content id="compare-edit-size">
-        How big is your home in square feet?
+        <div id="compare">
+            <h4>How big is your home in square feet?</h4>
 
-        <label class="item item-input">
-            <input type="text" value="{{home.size}}" placeholder="Size in Square Feet" ng-model="home.size">
-        </label>
-        
-        <button class="button button-block button-positive" ng-click="gotoFamily()">Continue</button>
+            <label class="item item-input">
+                <input type="text" value="{{home.size}}" placeholder="Size in Square Feet" ng-model="home.size">
+            </label>
 
-    </ion-content>
+            <button class="button button-block button-positive" ng-click="gotoFamily()">Continue</button>
+        </div>
+</ion-content>
 </ion-view>
