@@ -28,13 +28,15 @@
 				content: url('../img/energycalendar.png');
 			}
 			&.realtime-usage {
+				width: 54px;
 				content: url('../img/realtime.png');
 			}
 			&.standby-power {
 				content: url('../img/stanbypower.jpg');
 			}
 			&.bill-estimator {
-				content: url('../img/bill.png');
+				width: 60px;
+				content: url('../img/bill_estimator.png');
 			}
 		}
 		.line-label {
