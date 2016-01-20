@@ -9731,11 +9731,17 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-/** {
-	color: rgb(89, 89, 89, 1);
-}*/
 #intro-login {
   padding: 8px 12px 8px; }
+  #intro-login .spinner svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    stroke: #FFFFFF;
+    fill: #FFFFFF; }
   #intro-login .scroll {
     height: 100%; }
   #intro-login #login-image {
@@ -9748,64 +9754,71 @@ a.button {
   #intro-login .sign-up {
     padding-top: 14px; }
 
-#myenergy {
-  margin-top: 12px; }
-  #myenergy .scroll {
-    height: 100%; }
-  #myenergy .scroll-bar {
-    visibility: hidden; }
-  #myenergy #myenergy-kwh-container {
-    height: 70%;
-    border: 1px solid #A0A3B2;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    margin-left: 12px;
-    margin-right: 12px;
-    box-shadow: 2px 2px 5px #A0A3B2; }
-    #myenergy #myenergy-kwh-container .header {
-      height: 36px;
-      text-align: center;
+#myenergy .scroll {
+  height: 100%;
+  padding-top: 12px; }
+
+#myenergy .scroll-bar {
+  visibility: hidden; }
+
+#myenergy #myenergy-kwh-container {
+  height: 60%;
+  border: 1px solid #A0A3B2;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  margin-left: 12px;
+  margin-right: 12px;
+  box-shadow: 2px 2px 5px #A0A3B2; }
+  #myenergy #myenergy-kwh-container .header {
+    height: 36px;
+    text-align: center;
+    position: relative; }
+    #myenergy #myenergy-kwh-container .header .header-title {
+      line-height: 36px;
+      font-size: 20px; }
+    #myenergy #myenergy-kwh-container .header .edit-button {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      background-color: black; }
+  #myenergy #myenergy-kwh-container #kwh-chart {
+    height: calc(60% - 36px); }
+  #myenergy #myenergy-kwh-container .footer {
+    height: 40%; }
+    #myenergy #myenergy-kwh-container .footer .footer-list {
+      height: 50%;
+      padding-left: 18px;
       position: relative; }
-      #myenergy #myenergy-kwh-container .header .header-title {
-        line-height: 36px;
-        font-size: 20px; }
-      #myenergy #myenergy-kwh-container .header .edit-button {
+      #myenergy #myenergy-kwh-container .footer .footer-list .list-image {
         display: inline-block;
-        width: 24px;
-        height: 24px;
+        width: 48px;
+        height: 48px;
         position: absolute;
-        right: 8px;
-        top: 6px;
-        background-color: black; }
-    #myenergy #myenergy-kwh-container #kwh-chart {
-      height: calc(60% - 36px); }
-    #myenergy #myenergy-kwh-container .footer {
-      height: 40%; }
-      #myenergy #myenergy-kwh-container .footer .footer-list {
-        height: 50%;
-        padding-left: 18px;
-        position: relative; }
-        #myenergy #myenergy-kwh-container .footer .footer-list .list-image {
-          display: inline-block;
-          width: 48px;
-          height: 48px;
-          position: absolute;
-          top: calc(50% - 24px); }
-          #myenergy #myenergy-kwh-container .footer .footer-list .list-image.co2 {
-            content: url("../img/co2.ico"); }
-          #myenergy #myenergy-kwh-container .footer .footer-list .list-image.tree {
-            content: url("../img/pinetree.jpg"); }
-        #myenergy #myenergy-kwh-container .footer .footer-list .list-label {
-          position: absolute;
-          top: calc(50% - 10px);
-          padding-left: 72px;
-          font-size: 16px; }
-          #myenergy #myenergy-kwh-container .footer .footer-list .list-label .highlighted {
-            font-size: 20px; }
-  #myenergy #myenergy-nonkwh-container {
-    height: 15%; }
-    #myenergy #myenergy-nonkwh-container.activated {
-      background-color: #f0f0f0; }
+        top: calc(50% - 24px); }
+        #myenergy #myenergy-kwh-container .footer .footer-list .list-image.co2 {
+          content: url("../img/co2.ico"); }
+        #myenergy #myenergy-kwh-container .footer .footer-list .list-image.tree {
+          content: url("../img/pinetree.jpg"); }
+        #myenergy #myenergy-kwh-container .footer .footer-list .list-image.hambuger {
+          content: url("../img/hambuger.png"); }
+      #myenergy #myenergy-kwh-container .footer .footer-list .list-label {
+        position: absolute;
+        top: calc(50% - 10px);
+        padding-left: 60px;
+        font-size: 16px; }
+        #myenergy #myenergy-kwh-container .footer .footer-list .list-label .highlighted {
+          font-size: 20px; }
+
+#myenergy #myenergy-nonkwh-container {
+  height: 12%; }
+  #myenergy #myenergy-nonkwh-container.activated {
+    background-color: #f0f0f0; }
+
+#myenergy #empty {
+  height: 24px; }
 
 #kwh-usage {
   padding: 8px 12px 8px; }
@@ -9853,7 +9866,8 @@ a.button {
     visibility: hidden; }
   #usage-trends #usage-trends-detail #chart {
     height: 40%;
-    margin-top: 50px; }
+    margin-top: 50px;
+    margin-right: 30px; }
   #usage-trends #usage-trends-detail #detail {
     height: calc(60% - 50px); }
     #usage-trends #usage-trends-detail #detail #detail-container {
@@ -9965,6 +9979,26 @@ a.button {
       position: absolute;
       right: 12px; }
 
+#realtime-usage-modal {
+  height: calc(100% - 24px); }
+  #realtime-usage-modal .spinner svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto; }
+  #realtime-usage-modal #header {
+    height: 36px;
+    text-align: right;
+    margin-top: 24px; }
+    #realtime-usage-modal #header .close-button {
+      font-size: 36px;
+      margin-right: 24px; }
+      #realtime-usage-modal #header .close-button.activated {
+        color: #000;
+        opacity: 0.3; }
+
 #community {
   font-size: 20px; }
   #community img {
@@ -10052,10 +10086,8 @@ a.button {
   #compare img {
     max-width: 100%; }
 
-#setting {
-  padding: 8px 12px 8px; }
-  #setting #setting-container .item {
-    border: 0px; }
+#setting #setting-container .item-avatar {
+  height: 100px; }
 
 #main-myenergy-line {
   margin-bottom: 8px;

@@ -1,0 +1,28 @@
+#realtime-usage-modal {
+	height: calc(100% - 24px);
+
+	.spinner svg {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+
+	#header {
+		height: 36px;
+		text-align: right;
+		margin-top: 24px;
+
+		.close-button {
+			font-size: 36px;
+			margin-right: 24px;
+
+			&.activated {
+				color: #000;
+				opacity: 0.3;
+			}
+		}
+	}
+}

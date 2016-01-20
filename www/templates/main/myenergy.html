@@ -1,6 +1,10 @@
 <ion-view>
-	<ion-content id="myenergy" has-bouncing="false">
-	  	<div id="myenergy-kwh-container" ng-click="goToDetailView('kwh')">
+	<ion-nav-title>
+		<img src="./img/logo.png" style="width:100px; margin-top: 10px">
+	</ion-nav-title>
+	
+	<ion-content id="myenergy">
+	  	<div id="myenergy-kwh-container" ng-click="goToDetailView('main.kwh-usage')">
 	  		
 	  		<div class="header">
 	  			<span class="header-title">Today</span>
@@ -15,15 +19,21 @@
 	  			</div>
 	  			<div class="footer-list">
 	  				<span class="list-image tree"></span>
-	  				<span class="list-label"><span class="highlighted">{{data.treeNeeded}}</span>  Pine trees saved</span>
+	  				<span class="list-label"><span class="highlighted">{{data.treeNeeded}}</span>  Pine trees needed</span>
 	  			</div>
+	  			<!-- <div class="footer-list">
+	  				<span class="list-image hambuger"></span>
+	  				<span class="list-label"><span class="highlighted">{{data.calories}}</span> Calories (<span class="highlighted">{{data.hambugers}}</span> hambugers)</span>
+	  			</div> -->
+
 	  		</div>
 	
 		</div>
 	  	
-	  	<div id="myenergy-nonkwh-container" ng-repeat="item in myenergyItems" ng-click="goToDetailView(item.type)">
+	  	<div id="myenergy-nonkwh-container" ng-repeat="item in myenergyItems" ng-click="goToDetailView(item.nextState)">
 	  		<myenergy-line label="{{item.label}}" type="{{item.type}}">
 	  	</div>
-	
+		
+		<div id="empty"></div>
 	</ion-content>
 </ion-view>

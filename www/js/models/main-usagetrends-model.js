@@ -16,7 +16,6 @@ angular.module('enertalkHomeUSA.services')
 			Api.getPeriodicUsage(User.accesstoken, User.uuid, period)
 			.then(function (response) {
 				if (response.status === 200) {
-					console.log(response);
 					var dataList = refineData(response.data, 'day');
 					deferred.resolve(dataList);
 				} else {
@@ -47,7 +46,6 @@ angular.module('enertalkHomeUSA.services')
 			.then(function (response) {
 				if (response.status === 200) {
 					var dataList = refineData(response.data, 'week');
-					console.log(dataList);
 					deferred.resolve(dataList);
 				} else {
 					deferred.reject('');

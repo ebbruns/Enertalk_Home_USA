@@ -1,15 +1,15 @@
 #myenergy {
-	margin-top: 12px;
 	
 	.scroll {
 		height: 100%;
+		padding-top: 12px;
 	}
 	.scroll-bar {
 		visibility: hidden;
 	}
 
 	#myenergy-kwh-container {
-		height: 70%;
+		height: 60%;
 		border: 1px solid #A0A3B2;
 		border-radius: 8px;
 		margin-bottom: 4px;
@@ -60,11 +60,14 @@
 					&.tree {
 						content: url('../img/pinetree.jpg');
 					}
+					&.hambuger {
+						content: url('../img/hambuger.png');
+					}
 				}
 				.list-label {
 					position: absolute;
 					top: calc(50% - 10px);
-					padding-left: 72px;
+					padding-left: 60px;
 					font-size: 16px;
 
 					.highlighted {
@@ -76,9 +79,14 @@
 	}
 
 	#myenergy-nonkwh-container {
-		height: 15%;
+		height: 12%;
 		&.activated {
 			background-color: #f0f0f0;
 		}
+
+	}
+
+	#empty {
+		height: 24px;
 	}
 }

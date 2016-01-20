@@ -1,9 +1,11 @@
 #setting {
-	padding: 8px 12px 8px;
 	
 	#setting-container {
 		.item {
-			border: 0px;
+
+		}
+		.item-avatar {
+			height: 100px;
 		}
 	}
 }

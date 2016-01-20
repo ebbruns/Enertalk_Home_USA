@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('enertalkHomeUSA', ['ionic', 'ngCordova', 'enertalkHomeUSA.controllers', 'enertalkHomeUSA.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, UIHub) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -20,6 +20,7 @@ angular.module('enertalkHomeUSA', ['ionic', 'ngCordova', 'enertalkHomeUSA.contro
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    UIHub.init();
   });
 })
 
@@ -94,6 +95,46 @@ angular.module('enertalkHomeUSA', ['ionic', 'ngCordova', 'enertalkHomeUSA.contro
                   controller: 'EnergyCalendarCtrl'
               }
           }
+      })
+
+      .state('main.realtime-usage', {
+        url: '/realtime-usage',
+        views: {
+          'MyenergyContent': {
+            templateUrl: 'templates/main/realtime-usage.html',
+            controller: 'RealtimeUsageCtrl'
+          }
+        }
+      })
+
+      .state('main.standby-power', {
+        url: '/standby-power',
+        views: {
+          'MyenergyContent': {
+            templateUrl: 'templates/main/standby-power.html',
+            controller: 'StandbyPowerCtrl'
+          }
+        }
+      })
+
+      .state('main.bill-estimator', {
+        url: '/bill-estimator',
+        views: {
+          'MyenergyContent': {
+            templateUrl: 'templates/main/bill-estimator.html',
+            controller: 'BillEstimatorCtrl'
+          }
+        }
+      })
+
+      .state('main.myhome-diet', {
+        url: '/myhome-diet',
+        views: {
+          'MyenergyContent': {
+            templateUrl: 'templates/main/myhome-diet.html',
+            controller: 'MyhomeDietCtrl'
+          }
+        }
       })
       // ------------------------------------------
 
