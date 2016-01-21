@@ -1,5 +1,6 @@
 <ion-view>
 	<ion-content id="intro-login">
+
     <span id="login-image"></span>
  		<div class="list">
   			<label class="item item-input">
@@ -9,7 +10,10 @@
     			<input type="password" placeholder="password" ng-model="credentials.password">
   			</label>
 		</div>
-		<button class="button button-block button-positive" ng-click="login()">Log In</button>
+		<button class="button button-block button-positive" ng-click="login()">
+      <span ng-show="!loading">Log In</span>
+      <ion-spinner ng-if="loading"></ion-spinner>
+    </button>
         <!-- <button class="button button-block button-positive" ng-click="passwordRecovery()">Forgot your Password?</button> -->
         <div class="text-center sign-up">
             Don't have an account?

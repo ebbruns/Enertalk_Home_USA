@@ -1,7 +1,7 @@
 angular.module('enertalkHomeUSA.controllers')
 
 	.controller('UsageTrendsCtrl', function($scope, UsageTrendsModel, User, $timeout) {
-
+		console.log(User);
 		$scope.tabs = [{
 			label: 'day',
 			dataList: [],
@@ -45,14 +45,20 @@ angular.module('enertalkHomeUSA.controllers')
 				$scope.currentTab.dataList = response;
 				drawChart();
 			});
-			UsageTrendsModel.getMonthData()
-			.then(function (response) {
-				$scope.detailDataList = response;
-			})
+			$scope.detailDataList = User.monthData.reverse();
+			// console.log($scope.detailDataList);
+			// UsageTrendsModel.getMonthData()
+			// .then(function (response) {
+			// 	console.log($scope.detailDataList);
+			// 	console.log(response);
+			// })
 		}
 
 		function drawChart () {
-			var barOptions = {
+			var target = document.getElementById('chart'),
+				// width = target.style.width,
+				// height = target.style.height,
+				barOptions = {
 				chart: {
 		            type: 'column',
 		            renderTo: 'chart'
@@ -66,8 +72,53 @@ angular.module('enertalkHomeUSA.controllers')
 		                text: null
 		            },
 		            type: 'datetime',
+		            tickInterval: (function () {
+		          		var type = $scope.currentTab.label;
+
+		          		if (type === 'day') {
+		          			return 3600 * 1000;
+		          		} else if (type === 'week') {
+		          			return 3600 * 1000 * 24;
+		          		} else if (type === 'month') {
+		          			return 3600 * 1000 * 24;
+		          		}
+		            })(),
 		            labels: {
-		            		enabled: false
+	            		enabled: true,
+	            		align: 'center',
+	            		rotation: 0,
+	            		style: {
+	            			whiteSpace: 'nowrap',
+	            			textOverflow: 'none'
+	            		},
+	            		formatter: function () {
+	            			var type = $scope.currentTab.label,
+	            				date = new Date(this.value);
+
+	            			if (type === 'day') {
+	            				if (date.getHours() === 0) {
+	            					return '12 a.m.';
+	            				} else if (date.getHours() === 12) {
+	            					return '12 p.m.';
+	            				} else if (date.getHours() === 23) {
+	            					return '12 a.m.';
+	            				} else {
+	            					return '';
+	            				}
+	            			} else if (type === 'week') {
+	            				var day = ['S', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'];
+	            				console.log(date.getDay());
+	            				return day[date.getDay()];
+	            			} else if (type === 'month') {
+	            				if (date.getDate() === 1) {
+	            					return '1th';
+	            				} else if (date.getDate() === 15) {
+	            					return '15th';
+	            				}
+	            			} else if (type === 'year') {
+
+	            			}
+	            		}
 		            },
 		            lineWidth: 0,
 		            tickWidth: 0
@@ -78,8 +129,11 @@ angular.module('enertalkHomeUSA.controllers')
 		                text: ''
 		            },
 		            labels: {
-		            	enabled: false
-		            },
+		            	enabled: true,
+		            	formatter: function () {
+		            		return (this.value / 1000000).toFixed(1);
+		            	}
+		           	},
 		            gridLineWidth: 0,
 		            plotLines: [{
 	                    value: $scope.currentTab.plan,
@@ -120,12 +174,15 @@ angular.module('enertalkHomeUSA.controllers')
 		$scope.label = {
 			getDayLabel: function (timestamp) {
 				var date = new Date(timestamp),
+					now = new Date(),
 					dayLabel;
-				if ($scope.currentTab.label === 'year') {
-					dayLabel = date.getFullYear() + '/' + (date.getMonth() + 1);
+				
+				if (now.getFullYear() === date.getFullYear() && now.getMonth() === date.getMonth() && now.getDate() === date.getDate()) {
+					dayLabel = 'Today';
 				} else {
 					dayLabel = (date.getMonth() + 1) + '/' + date.getDate();
 				}
+
 				return dayLabel;
 			},
 			getkWhLabel: function (usage) {
@@ -144,7 +201,7 @@ angular.module('enertalkHomeUSA.controllers')
 		};
 
 		$scope.removeZero = function (item) {
-			return item.y > 0;
+			return item.unitPeriodUsage > 0;
 		};
 		init ();
 	});
