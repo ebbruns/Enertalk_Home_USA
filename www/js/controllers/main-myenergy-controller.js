@@ -4,30 +4,37 @@ angular.module('enertalkHomeUSA.controllers')
   		
   		$scope.init = function (){
   			var target = document.getElementById('myenergy');
+  			
   			$scope.myenergyItems = [{
     			label: 'Usage Trends',
-    			type: 'usage-trends'
+    			type: 'usage-trends',
+    			nextState: 'main.usage-trends'
     		},{
-    			label: 'Monthly View',
-    			type: 'energy-calendar'
+    			label: 'Monthly Overview',
+    			type: 'energy-calendar',
+    			nextState: 'main.energy-calendar'
     		},{
     			label: 'Realtime Usage',
-    			type: 'realtime-usage'
+    			type: 'realtime-usage',
+    			nextState: 'main.realtime-usage'
     		},{
     			label: 'Standby Power',
-    			type: 'standby-power'
+    			type: 'standby-power',
+    			nextState: 'main.standby-power'
     		}, {
     			label: 'Bill Estimator',
-    			type: 'bill-estimator'
+    			type: 'bill-estimator',
+    			nextState: 'main.bill-estimator'
+    		}, {
+    			label: 'My Home Diet',
+    			type: 'myhome-diet',
+    			nextState: 'main.myhome-diet'
     		}];
 
     		MyenergyModel.getModel().then(function (response) {
     			$scope.data = response;
     			$scope.drawChart(parseFloat($scope.data.todayUsage));
     		});
-    		// $timeout(function () {
-	    	// 	$scope.drawChart();
-	    	// }, 300);
   		};
 
   		$scope.drawChart = function (todayUsage) {
@@ -109,19 +116,10 @@ angular.module('enertalkHomeUSA.controllers')
 		    $scope.chart = new Highcharts.chart(gaugeOptions);
   		};
 
-  		$scope.goToDetailView = function (type) {
-  			switch (type) {
-  				case 'kwh':
-  					$state.go('main.kwh-usage');
-  					break;
-				case 'usage-trends':
-					$state.go('main.usage-trends');
-  					break;
-				case 'energy-calendar':
-					$state.go('main.energy-calendar');
-					break;
-  			}
+  		$scope.goToDetailView = function (nextState) {
+  			$state.go(nextState);
   		};
+  		
   		$scope.init();
 
   	});

@@ -1,12 +1,19 @@
 <ion-view>
+  
+  <ion-nav-title>
+    <img src="./img/logo.png" style="width:100px; margin-top: 10px">
+  </ion-nav-title>
+
 	<ion-content id="setting">
 	  	<div id="setting-container">
 	  		<div class="list">
 
-			    <a class="item item-avatar">
+			    <div class="item item-avatar">
 			      	<img src="./img/user.png" id="profile-image" ng-click="changeProfileImage()">
-			      	<h2>name {{profile.nickName}}</h2>
-			    </a>
+			      	<h2>name:   {{profile.nickName}}</h2>
+              <h2>email:   {{profile.email}}</h2>
+              <h2>plan:   {{plan}}kWh</h2>
+          </div>
 
 			    <li class="item item-icon-right">
       				Reset Daily Target
@@ -21,7 +28,8 @@
        					<div class="track">
          					<div class="handle"></div>
        					</div>
-    	 		</label>
+    	 		  </label>
+          </li>
 
     	 		<li class="item item-toggle">
      				Pop-up Real-time usage
@@ -34,7 +42,7 @@
 
   				</li>
 
-			</div>
+  			</div>
 	  	</div>
 	</ion-content>
 </ion-view>

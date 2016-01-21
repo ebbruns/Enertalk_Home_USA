@@ -1,6 +1,6 @@
 angular.module('enertalkHomeUSA.controllers')
 
-	.controller('IntroLoginCtrl', function ($scope, $state, User, Util) {
+	.controller('IntroLoginCtrl', function ($scope, $state, User, Util, $timeout) {
 		
 		$scope.credentials = {
 			id: undefined,
@@ -25,11 +25,14 @@ angular.module('enertalkHomeUSA.controllers')
 			var credentials = {};
 
 			if ($scope.credentials.id && $scope.credentials.password) {
+				$scope.loading = true;
+
 				if ($scope.credentials.id.indexOf('@') > -1) {
 					credentials.email = $scope.credentials.id;
 				} else {
 					credentials.phone = $scope.credentials.id;
 				}
+				
 				credentials.password = $scope.credentials.password;
 				credentials.app_version = 'web';
 
@@ -40,10 +43,14 @@ angular.module('enertalkHomeUSA.controllers')
 						Util.localStorage.setObject('loginData', $scope.credentials);
 						$state.go('main.myenergy');
 					}
+					$scope.loading = false;
+
 				});
 			} else if (!$scope.credentials.id) {
+
 				// id input command
 			} else if (!$scope.credentials.password) {
+
 				// password input commanad
 			}
 		};

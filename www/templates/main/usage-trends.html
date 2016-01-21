@@ -24,10 +24,10 @@
 			
 			<div id="detail-container">
 				<div class="detail" ng-repeat="data in detailDataList | filter: removeZero">
-					<span class="elem">{{label.getDayLabel(data.x)}}</span>
-					<span class="elem">{{label.getkWhLabel(data.y)}}</span>
-					<span class="elem" ng-class="{'plan-up': data.y >= dailyPlan, 'plan-down': data.y < dailyPlan}">{{label.getPlanLabel(data.y)}}</span>
-					<span class="elem" ng-bind="detail.active"></span>
+					<span class="elem">{{label.getDayLabel(data.timestamp)}}</span>
+					<span class="elem">{{label.getkWhLabel(data.unitPeriodUsage)}}</span>
+					<span class="elem" ng-class="{'plan-up': data.unitPeriodUsage >= dailyPlan, 'plan-down': data.unitPeriodUsage < dailyPlan}">{{label.getPlanLabel(data.unitPeriodUsage)}}</span>
+					<span class="elem" ng-bind="data.activeTime"></span>
 				</div>
 			</div>
 		</div>
