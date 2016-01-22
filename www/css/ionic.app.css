@@ -10074,6 +10074,10 @@ a.button {
   font-size: 20px;
   background: linear-gradient(white, pink);
   height: 100%; }
+  #compare #chart {
+    height: 300px;
+    margin-top: 50px;
+    margin-right: 30px; }
   #compare .scroll {
     height: 100%; }
   #compare .button {

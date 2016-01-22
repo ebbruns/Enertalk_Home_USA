@@ -7,9 +7,10 @@
             <!-- <img src="img/comparetemp.jpg" /> -->
 
 
-            <div ng-repeat="data in detailDataList | filter: removeZero">
-                {{data}}
-                <div id="chart"></div>
+            <div ng-repeat="data in dataList  |filter: removeZero"
+                 repeat-complete = checkDone($index)>
+                <div id="{{'chart' + $index}}"></div> 
+                
             </div>
         </div>
 </ion-content>
