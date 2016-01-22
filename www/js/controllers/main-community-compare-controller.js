@@ -12,7 +12,6 @@ angular.module('enertalkHomeUSA.controllers')
                         $scope.current = 0;
                         console.log(response);
                         for (i = 0; i < response.length; i++) {
-                            console.log(response[i].y);
                             $scope.current += response[i].y;
                         }
 
