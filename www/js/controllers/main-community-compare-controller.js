@@ -29,8 +29,7 @@ angular.module('enertalkHomeUSA.controllers')
                                         if ($scope.current > $scope.max) {
                                             $scope.max = $scope.current;
                                         }
-                                        $scope.max = $scope.max / 1000; //convert to kWH
-
+                                        $scope.max = ($scope.max / 1000); //convert to kWH
                     
                                         /*	    CompareModel.getComparisonData()
                                                     .then(function (comparison) {
@@ -64,6 +63,9 @@ angular.module('enertalkHomeUSA.controllers')
                         renderTo: 'chart' + i,
                         backgroundColor: 'white'
                     },
+                    credits: {
+                        enabled: false
+                    },
                     legend:{
                         enabled: false
                     },
@@ -71,12 +73,13 @@ angular.module('enertalkHomeUSA.controllers')
                         text: months[chartMonth.getMonth()]
                     },
                     yAxis: {
-                        //categories: ['kWh'],
+                        title: {
+                            text: 'Usage in Kilowatt-Hours'
+                        },
                         tickAmount: 8,
                         max: $scope.max
                     },
                     xAxis: {
-                        tickAmout: 1,
                         title: {
                             text: ''
                         },
@@ -115,8 +118,13 @@ angular.module('enertalkHomeUSA.controllers')
                     title: {
                         text: months[currentDate.getMonth()]
                     },
+                    credits: {
+                        enabled: false
+                    },
                     yAxis: {
-                        //categories: ['Kilowatt Hours'],
+                        title:{
+                            text:'Usage in Kilowatt-Hours'
+                        },
                         tickAmount: 8,
                         max: $scope.max
                     },
