@@ -3,29 +3,42 @@ angular.module('enertalkHomeUSA.controllers')
 .controller('CommCompareCtrl', function ($scope, $state, CompareModel, $rootScope) {
 
     function init() {
-        CompareModel.getYearData()
+        CompareModel.getYearData() //get old data
 			.then(function (response) {
 			    //$scope.detailDataList = response;
 			    $scope.dataList = response;
-			    CompareModel.getCurrentData()
+
+			    CompareModel.getCurrentData() //this month's data
                     .then(function (response) {
                         $scope.current = 0;
                         console.log(response);
                         for (i = 0; i < response.length; i++) {
                             $scope.current += response[i].y;
                         }
-                        $scope.max = Math.max.apply(Math, $scope.dataList.map(function (o) { return o.y; }));
-                        if ($scope.current > $scope.max) {
-                            $scope.max = $scope.current;
-                        }
-                        $scope.max = $scope.max / 1000; //convert to kWH
+                        CompareModel.getComparisonData() //this month comparison
+                            .then(function (response) {
+                                $scope.comparison = response;
+                                console.log($scope.comparison);
+
+                                CompareModel.getComparisonDataPrior() //old month comparison
+                                    .then(function (response) {
+                                        $scope.comparisonOld = response;
+                                        console.log($scope.comparisonOld);
+
+                                        $scope.max = Math.max.apply(Math, $scope.dataList.map(function (o) { return o.y; }));
+                                        if ($scope.current > $scope.max) {
+                                            $scope.max = $scope.current;
+                                        }
+                                        $scope.max = $scope.max / 1000; //convert to kWH
 
                     
-		/*	    CompareModel.getComparisonData()
-                    .then(function (comparison) {
-                        $scope.comparison = comparison; */
-			    window.setTimeout(drawChart, 10); //gives ng-repeat time to render divs before trying to put charts there, not the best way to do it, but it's very hard to check ng-repeat termination without jquery			
-			    window.setTimeout(drawCurrentChart, 10);
+                                        /*	    CompareModel.getComparisonData()
+                                                    .then(function (comparison) {
+                                                        $scope.comparison = comparison; */
+                                        window.setTimeout(drawChart, 10); //gives ng-repeat time to render divs before trying to put charts there, not the best way to do it, but it's very hard to check ng-repeat termination without jquery			
+                                        window.setTimeout(drawCurrentChart, 10);
+                                    })
+                            })
                     })
 			})
     }
@@ -77,7 +90,7 @@ angular.module('enertalkHomeUSA.controllers')
                         color: '#87E924'
                     }, {
                         name: 'Similar Homes',
-                        data: [($scope.dataList[n - 1 - i].y / 1000)],
+                        data: [($scope.comparisonOld.user.usage / 1000)],
                         color: '#FFD832'
                     }]
                 };
@@ -126,7 +139,7 @@ angular.module('enertalkHomeUSA.controllers')
                         color: '#87E924'
                     }, {
                         name: 'Similar Homes',
-                        data: [($scope.current / 1000)],
+                        data: [($scope.comparison.user.usage)/1000],
                         color: '#FFD832'
                     }]
                 };

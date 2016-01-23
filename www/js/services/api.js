@@ -28,10 +28,25 @@ angular.module('enertalkHomeUSA.services')
 				}
 			});
 		};
+		this.getUsageRanking = function (accesstoken, uuid, period, state) {
+		    return $http({
+		        method: 'GET',
+		        url: APIURL.usageRanking(uuid),
+		        headers: {
+		            'Authorization': Util.encodeAuthHeader.bearer(accesstoken)
+		        },
+		        params: {
+		            period: period.unit,
+		            start: period.start,
+		            end: period.end,
+                    state: state
+		        }
+		    });
+		};
 		this.getMeteringUsage = function (accesstoken, uuid) {
 			return $http({
 				method: 'GET',
-				url: APIRUL.merteringUsage(uuid),
+				url: APIURL.meteringUsage(uuid),
 				headers: {
 					'Authorization': Util.encodeAuthHeader.bearer(accesstoken)
 				}
