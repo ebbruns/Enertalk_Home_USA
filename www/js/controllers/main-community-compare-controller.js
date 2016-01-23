@@ -70,7 +70,9 @@ angular.module('enertalkHomeUSA.controllers')
                         enabled: false
                     },
                     title: {
-                        text: months[chartMonth.getMonth()]
+                        text: months[chartMonth.getMonth()],
+                        align: 'right',
+                        x: -20
                     },
                     yAxis: {
                         title: {
@@ -116,7 +118,9 @@ angular.module('enertalkHomeUSA.controllers')
                         backgroundColor: 'white'
                     },
                     title: {
-                        text: months[currentDate.getMonth()]
+                        text: months[currentDate.getMonth()],
+                        align: 'right',
+                        x: -20
                     },
                     credits: {
                         enabled: false

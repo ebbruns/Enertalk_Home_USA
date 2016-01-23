@@ -1,9 +1,9 @@
 ﻿<ion-view view-title="Comparison to Neighbors">
     <ion-content id="compare-container">
         <div id="compare">
-            <div class="pinkland">
+            <div>
                 <button class="button button-block button-positive main-button" ng-click="edit()">Edit Home Info</button>
-                <h3 class="pinkmsg">Keep your home information updated for better estimates!</h3>
+               <!-- <h3 class="pinkmsg">Keep your home information updated for better estimates!</h3> -->
             </div>
 
             <div id="currentChart" class="chart"></div>
@@ -11,6 +11,7 @@
             <div ng-repeat="data in dataList  |filter: removeZero">
                 <div id="{{'chart' + $index}}" class="chart"></div>               
             </div>
+            <br />
         </div>
 </ion-content>
 </ion-view>

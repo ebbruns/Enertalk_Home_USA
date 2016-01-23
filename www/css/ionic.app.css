@@ -10073,7 +10073,9 @@ a.button {
 #compare-container {
   font-size: 20px;
   background: #F0F0F0;
-  height: 100%; }
+  height: 100%;
+  position: absolute;
+  top: 0px; }
   #compare-container .chart {
     float: right;
     height: 300px;
@@ -10083,23 +10085,23 @@ a.button {
     margin-bottom: 10px;
     width: 100%; }
   #compare-container .scroll {
-    height: 100%; }
+    height: 200%; }
   #compare-container .pinkland {
     background: #E82486;
-    height: 70px; }
+    height: 70px;
+    top: 44px; }
   #compare-container h3 {
     float: left;
     margin-left: 5%;
     color: white;
     font-size: 22px; }
   #compare-container .edit-button {
-    margin-top: 5%; }
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%; }
   #compare-container .main-button {
-    float: right;
-    margin-right: 1%;
-    margin-top: 1%;
-    margin-bottom: 20px;
-    width: 15%; }
+    margin-top: 25%;
+    vertical-align: middle; }
   #compare-container img {
     max-width: 100%; }
 
