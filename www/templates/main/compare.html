@@ -1,17 +1,15 @@
 ﻿<ion-view view-title="Comparison to Neighbors">
     <ion-content id="compare-container">
         <div id="compare">
+            <div class="pinkland">
+                <button class="button button-block button-positive main-button" ng-click="edit()">Edit Home Info</button>
+                <h3 class="pinkmsg">Add info for a better comparison --></h3>
+            </div>
 
-            <button class="button button-block button-positive" ng-click="edit()">Add or Edit Home Information</button>
+            <div id="currentChart" class="chart"></div>
 
-            <!-- <img src="img/comparetemp.jpg" /> -->
-
-            <div id="currentChart"></div>
-
-            <div ng-repeat="data in dataList  |filter: removeZero"
-                 repeat-complete = checkDone($index)>
-                <div id="{{'chart' + $index}}"></div> 
-                
+            <div ng-repeat="data in dataList  |filter: removeZero">
+                <div id="{{'chart' + $index}}" class="chart"></div>               
             </div>
         </div>
 </ion-content>

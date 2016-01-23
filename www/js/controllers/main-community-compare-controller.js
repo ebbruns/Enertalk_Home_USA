@@ -14,12 +14,17 @@ angular.module('enertalkHomeUSA.controllers')
                         for (i = 0; i < response.length; i++) {
                             $scope.current += response[i].y;
                         }
+                        $scope.max = Math.max.apply(Math, $scope.dataList.map(function (o) { return o.y; }));
+                        if ($scope.current > $scope.max) {
+                            $scope.max = $scope.current;
+                        }
+                        $scope.max = $scope.max / 1000; //convert to kWH
 
                     
 		/*	    CompareModel.getComparisonData()
                     .then(function (comparison) {
                         $scope.comparison = comparison; */
-			    window.setTimeout(drawChart, 100); //gives ng-repeat time to render divs before trying to put charts there, not the best way to do it, but it's very hard to check ng-repeat termination without jquery			
+			    window.setTimeout(drawChart, 10); //gives ng-repeat time to render divs before trying to put charts there, not the best way to do it, but it's very hard to check ng-repeat termination without jquery			
 			    window.setTimeout(drawCurrentChart, 10);
                     })
 			})
@@ -43,25 +48,37 @@ angular.module('enertalkHomeUSA.controllers')
                 myChart = {
                     chart: {
                         type: 'bar',
-                        renderTo: 'chart' + i
+                        renderTo: 'chart' + i,
+                        backgroundColor: 'white'
+                    },
+                    legend:{
+                        enabled: false
                     },
                     title: {
                         text: months[chartMonth.getMonth()]
                     },
                     yAxis: {
-                        categories: ['Kilowatt Hours']
+                        //categories: ['kWh'],
+                        tickAmount: 8,
+                        max: $scope.max
                     },
                     xAxis: {
+                        tickAmout: 1,
                         title: {
                             text: ''
+                        },
+                        labels: {
+                            enabled: false
                         }
                     },
                     series: [{
                         name: 'Your Usage',
-                        data: [$scope.dataList[n - 1 - i].y / 1000]
+                        data: [$scope.dataList[n - 1 - i].y / 1000],
+                        color: '#87E924'
                     }, {
                         name: 'Similar Homes',
-                        data: [($scope.dataList[n - 1 - i].y / 1000)]
+                        data: [($scope.dataList[n - 1 - i].y / 1000)],
+                        color: '#FFD832'
                     }]
                 };
 
@@ -79,30 +96,43 @@ angular.module('enertalkHomeUSA.controllers')
                 currentChart = {
                     chart: {
                         type: 'bar',
-                        renderTo: 'currentChart'
+                        renderTo: 'currentChart',
+                        backgroundColor: 'white'
                     },
                     title: {
                         text: months[currentDate.getMonth()]
                     },
                     yAxis: {
-                        categories: ['Kilowatt Hours']
+                        //categories: ['Kilowatt Hours'],
+                        tickAmount: 8,
+                        max: $scope.max
+                    },
+                    legend:{
+                        align: 'top',
+                        verticalAlign: 'top'
                     },
                     xAxis: {
                         title: {
                             text: ''
+                        },
+                        labels: {
+                            enabled: false
                         }
                     },
+                    
                     series: [{
                         name: 'Your Usage',
-                        data: [$scope.current / 1000]
+                        data: [$scope.current / 1000],
+                        color: '#87E924'
                     }, {
                         name: 'Similar Homes',
-                        data: [($scope.current / 1000)]
+                        data: [($scope.current / 1000)],
+                        color: '#FFD832'
                     }]
                 };
 
 
-                $scope.chart = new Highcharts.chart(currentChart);
+                $scope.chartCurrent = new Highcharts.chart(currentChart);
             }
         
 

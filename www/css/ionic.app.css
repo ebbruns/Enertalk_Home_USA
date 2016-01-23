@@ -10070,25 +10070,46 @@ a.button {
   #community #community-alt-container {
     height: 15%; }
 
-#compare {
+#compare-container {
   font-size: 20px;
-  background: linear-gradient(white, pink);
+  background: #F0F0F0;
   height: 100%; }
-  #compare #chart {
+  #compare-container .chart {
+    float: right;
     height: 300px;
-    margin-top: 50px;
-    margin-right: 30px; }
-  #compare .scroll {
+    margin-top: 20px;
+    margin-right: 2px;
+    margin-left: 2%;
+    border: solid;
+    border-width: 2px;
+    margin-bottom: 10px;
+    width: 100%; }
+  #compare-container .scroll {
     height: 100%; }
-  #compare .button {
-    margin-bottom: 50%;
+  #compare-container .pinkland {
+    background: #E82486;
+    height: 70px; }
+  #compare-container h3 {
+    float: right;
+    color: white;
+    font-size: 22px; }
+  #compare-container .edit-button {
     margin-top: 5%; }
-  #compare h4 {
+  #compare-container .main-button {
+    float: right;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 20px;
+    width: 15%; }
+  #compare-container img {
+    max-width: 100%; }
+
+#compare-edit {
+  background: linear-gradient(white, #E82486); }
+  #compare-edit h4 {
     margin-bottom: 5%;
     margin-top: 5%;
     text-align: center; }
-  #compare img {
-    max-width: 100%; }
 
 #setting #setting-container .item-avatar {
   height: 100px; }
